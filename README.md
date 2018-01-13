@@ -23,4 +23,4 @@ General Design:
 2) Drop down will show the top, acitive players for each position.
 3) User can then select two players and compare stats.  API will deliver stats and player video.
 4) User can save a player to his/her fantasy football list.
->>>>>>> 5e9a4f3bf34e4566a2855c7cf2a85744e4a463c9
+
