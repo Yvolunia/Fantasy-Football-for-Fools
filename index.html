@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>FFFF</title>
+    <title>Fantasy Football For Fools</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg navbar grey lighten-1 fixed-top">
             <div class="container justify-content-center">
                 <!-- Navbar brand -->
-                <a class="navbar-brand animated bounceIn" href="#">
+                <a class="navbar-brand animated bounceInLeft" href="#">
                     <img src="assets/images/ball.png" alt="football logo">
                     <h5>FFFF</h5>
                 </a>
@@ -37,40 +37,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <!-- Links -->
-                    <ul class="navbar-nav mr-auto white-text">
+                    <ul class="navbar-nav mr-auto white-text animated bounceInLeft">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">How To</a>
+                            <a class="nav-link" href="#how-to">How To</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Highlights</a>
                         </li>
-
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle primary-color" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">Top 20 Picks</a>
-                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Quater Backs</a>
-                                <a class="dropdown-item" href="#">Running Backs</a>
-                                <a class="dropdown-item" href="#">Wide Recievers</a>
-                                <a class="dropdown-item" href="#">Tight End</a>
-                                <a class="dropdown-item" href="#">Defense/Special Teams</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Top 20 Picks</a>
                         </li>
-
                     </ul>
                     <!--Login form -->
                     <form class="form-inline animated bounceInRight">
 
                         <div class="md-form form-group">
-                            <i class="fa fa-envelope prefix blue-text"></i>
-                            <input type="email" id="form91" class="form-control validate">
-                            <label for="form91" data-error="wrong" data-success="right">Type your email</label>
+                            <i class="fa fa-user prefix blue-text"></i>
+                            <input type="text" id="form2" class="form-control">
+                            <label for="form2" data-error="wrong" data-success="right">Type your username</label>
                         </div>
 
                         <div class="md-form form-group">
@@ -100,7 +89,7 @@
                         <hr class="hr-light animated fadeIn">
                         <!--Description-->
                         <h4 class="white-text my-4 animated bounceInUp" id="description">Fantasy Football made easy for the absolute rookie!</h4>
-                        <button type="button" class="btn btn-danger animated bounceInUp">Get Started!</button>
+                        <button type="button" class="btn btn-danger animated bounceInUp" href="#how-to">Get Started!</button>
                     </div>
                 </div>
             </div>
@@ -112,22 +101,21 @@
     <!-- Main Layout -->
     <main class="mt-5">
         <div class="container">
-            <section id="instructions">
-                <h2 class="mb-4 text-center" id="how-to">How To Get Started</h2>
-                <div class="row d-flex justify-content center mb-4">
-                    <div class="col-md-2">
+            <section id="how-to">
 
-                    </div>
-                    <div class="col-md-4">
-                        <h4>1. Register for your free
-                            <br> account!
-                        </h4>
-                    </div>
-                    <div class="col-md-4">
+                <!--Section heading-->
+                <h1 class="py-5 font-bold text-center">How to get started!</h1>
+                <!--Section description-->
+                <p class="px-5 mb-5 pb-3 lead grey-text text-center">Follow these easy intructions in order to get started with Fantasy Football for Fools the right way.</p>
+                <hr class="my-5">
+                <!--Grid row-->
+                <div class="row pt-2">
+
+                    <!--Grid column-->
+                    <div class="col-lg-5 mb-r center-on-small-only">
                         <!-- Form register -->
                         <form>
-                            <p class="h5 text-center mb-4">Sign up</p>
-
+                            <p class="h5 text-center mb-4">Register</p>
                             <div class="md-form">
                                 <i class="fa fa-user prefix blue-text"></i>
                                 <input type="text" id="orangeForm-name" class="form-control">
@@ -138,79 +126,68 @@
                                 <input type="text" id="orangeForm-email" class="form-control">
                                 <label for="orangeForm-email">Your email</label>
                             </div>
-
                             <div class="md-form">
                                 <i class="fa fa-lock prefix blue-text"></i>
                                 <input type="password" id="orangeForm-pass" class="form-control">
                                 <label for="orangeForm-pass" class="">Your password</label>
                             </div>
-
                             <div class="text-center">
                                 <button class="btn btn-danger">Sign up</button>
                             </div>
-
                         </form>
                         <!-- Form register -->
-
                     </div>
-                    <div class="col-md-2">
+                    <!--Grid column-->
 
-                    </div>
-                </div>
+                    <!--Grid column-->
+                    <div class="col-lg-7">
 
-                <div class="row d-flex justify-content center mb-4" id="step-two">
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-4">
-                        <!--Panel-->
-                        <div class="card">
-                            <div class="card-header danger-color white-text">
-                                Quater Back
+                        <!--Grid row-->
+                        <div class="row pb-3">
+                            <div class="col-2 col-md-1">
+                                <i class="fa fa-mail-forward fa-lg blue-text"></i>
                             </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Matt Ryan</h4>
-                                <p class="card-text">Stats:</p>
-                                <a class="btn btn-danger">Review</a>
+                            <div class="col-10">
+                                <h5 class="font-bold text-left mb-3 dark-grey-text">Sign Up</h5>
+                                <p class="grey-text text-left">Sign up for FREE using the "Register" form to create your personal profile!</p>
                             </div>
                         </div>
-                        <!--/.Panel-->
-                    </div>
-                    <div class="col-md-4">
-                        <h4>2. Select a position, see top picks in that area, then select specific players to review.</h4>
-                    </div>
-                    <div class="col-md-2">
+                        <!--Grid row-->
 
-                    </div>
-                </div>
-                <div class="row d-flex justify-content center mb-4">
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-4">
-                        <h4>3. Save your favorite players to your very own personal list!</h4>
-                    </div>
-                    <div class="col-md-4">
-                        <!--Panel-->
-                        <div class="card">
-                            <div class="card-header danger-color white-text">
-                                Player List
+                        <!--Grid row-->
+                        <div class="row pb-3">
+                            <div class="col-2 col-md-1">
+                                <i class="fa fa-mail-forward fa-lg blue-text"></i>
                             </div>
-                            <div class="card-body">
-                                <h4 class="card-title">QB:</h4>
-                                <h4 class="card-title">RB:</h4>
-                                <h4 class="card-title">WR:</h4>
-                                <h4 class="card-title">TE:</h4>
-                                <h4 class="card-title">DEF/ST:</h4>
+                            <div class="col-10">
+                                <h5 class="font-bold text-left mb-3 dark-grey-text">Choose a player category</h5>
+                                <p class="grey-text text-left">Select a position to see the top picks in that category. Then select specific players to
+                                    review.</p>
                             </div>
                         </div>
-                        <!--/.Panel-->
-                    </div>
-                    <div class="col-md-2">
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row pb-3">
+                            <div class="col-2 col-md-1">
+                                <i class="fa fa-share fa-lg blue-text" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-10">
+                                <h5 class="font-bold text-left mb-3 dark-grey-text">Player list</h5>
+                                <p class="grey-text text-left">After you have reviewed your players, save which players you want to your personal list.
+                                    Now your ready to go to the draft!!!</p>
+                            </div>
+                        </div>
+                        <!--Grid row-->
 
                     </div>
+                    <!--Grid column-->
+
                 </div>
+                <!--Grid row-->
+
             </section>
+
         </div>
 
     </main>
@@ -230,10 +207,12 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="assets/js/mdb.min.js"></script>
