@@ -115,46 +115,46 @@
                     <div class="col-lg-5 mb-r center-on-small-only">
                         <!-- Firebase Initialization code -->
 
-                    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-                     <script>
-                     // Initialize Firebase
-                     var config = {
-                     apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
-                     authDomain: "fantasyfootballauthui.firebaseapp.com",
-                     databaseURL: "https://fantasyfootballauthui.firebaseio.com",
-                     projectId: "fantasyfootballauthui",
-                     storageBucket: "fantasyfootballauthui.appspot.com",
-                     messagingSenderId: "660825767375"
-                     };
-                     firebase.initializeApp(config);
-                     </script>
-                        
- 
-                      <!-- Firebase Sign In Widgets -->
+                        <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+                        <script>
+                            // Initialize Firebase
+                            var config = {
+                                apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
+                                authDomain: "fantasyfootballauthui.firebaseapp.com",
+                                databaseURL: "https://fantasyfootballauthui.firebaseio.com",
+                                projectId: "fantasyfootballauthui",
+                                storageBucket: "fantasyfootballauthui.appspot.com",
+                                messagingSenderId: "660825767375"
+                            };
+                            firebase.initializeApp(config);
+                        </script>
 
-                      <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-                      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-                      <script type="text/javascript">
-                     // FirebaseUI config.
-                     var uiConfig = {
-                     signInSuccessUrl: 'toptwenty.html',
-                     signInOptions: [
-                     // Leave the lines as is for the providers you want to offer your users.
-                     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                      ],
-                     // Terms of service url.
-                     tosUrl: '<your-tos-url>'
-                      };
 
-                     // Initialize the FirebaseUI Widget using Firebase.
-                     var ui = new firebaseui.auth.AuthUI(firebase.auth());
-                     // The start method will wait until the DOM is loaded.
-                     ui.start('#firebaseui-auth-container', uiConfig);
-                     </script>
+                        <!-- Firebase Sign In Widgets -->
 
-                     <div id="firebaseui-auth-container"></div>
+                        <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+                        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+                        <script type="text/javascript">
+                            // FirebaseUI config.
+                            var uiConfig = {
+                                signInSuccessUrl: 'toptwenty.html',
+                                signInOptions: [
+                                    // Leave the lines as is for the providers you want to offer your users.
+                                    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                                    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                                    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                                ],
+                                // Terms of service url.
+                                tosUrl: '<your-tos-url>'
+                            };
+
+                            // Initialize the FirebaseUI Widget using Firebase.
+                            var ui = new firebaseui.auth.AuthUI(firebase.auth());
+                            // The start method will wait until the DOM is loaded.
+                            ui.start('#firebaseui-auth-container', uiConfig);
+                        </script>
+
+                        <div id="firebaseui-auth-container"></div>
 
                         <!-- Form register -->
                     </div>
@@ -183,7 +183,8 @@
                             <div class="col-10">
                                 <h5 class="font-bold text-left mb-3 dark-grey-text">Choose a player category</h5>
                                 <p class="grey-text text-left">Select a position to see the top picks in that category. Then select specific players to
-                                    review.</p>
+                                    review.
+                                </p>
                             </div>
                         </div>
                         <!--Grid row-->
@@ -237,4 +238,3 @@
         crossorigin="anonymous"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="assets/js/mdb.min.js"></script>
-
