@@ -113,49 +113,28 @@
 
                     <!--Grid column-->
                     <div class="col-lg-5 mb-r center-on-small-only">
-                        <!-- Firebase Initialization code -->
-
-                    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-                     <script>
-                     // Initialize Firebase
-                     var config = {
-                     apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
-                     authDomain: "fantasyfootballauthui.firebaseapp.com",
-                     databaseURL: "https://fantasyfootballauthui.firebaseio.com",
-                     projectId: "fantasyfootballauthui",
-                     storageBucket: "fantasyfootballauthui.appspot.com",
-                     messagingSenderId: "660825767375"
-                     };
-                     firebase.initializeApp(config);
-                     </script>
-                        
- 
-                      <!-- Firebase Sign In Widgets -->
-
-                      <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-                      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-                      <script type="text/javascript">
-                     // FirebaseUI config.
-                     var uiConfig = {
-                     signInSuccessUrl: 'toptwenty.html',
-                     signInOptions: [
-                     // Leave the lines as is for the providers you want to offer your users.
-                     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                      ],
-                     // Terms of service url.
-                     tosUrl: '<your-tos-url>'
-                      };
-
-                     // Initialize the FirebaseUI Widget using Firebase.
-                     var ui = new firebaseui.auth.AuthUI(firebase.auth());
-                     // The start method will wait until the DOM is loaded.
-                     ui.start('#firebaseui-auth-container', uiConfig);
-                     </script>
-
-                     <div id="firebaseui-auth-container"></div>
-
+                        <!-- Form register -->
+                        <form>
+                            <p class="h5 text-center mb-4">Register</p>
+                            <div class="md-form">
+                                <i class="fa fa-user prefix blue-text"></i>
+                                <input type="text" id="orangeForm-name" class="form-control">
+                                <label for="orangeForm-name">Your name</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix blue-text"></i>
+                                <input type="text" id="orangeForm-email" class="form-control">
+                                <label for="orangeForm-email">Your email</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix blue-text"></i>
+                                <input type="password" id="orangeForm-pass" class="form-control">
+                                <label for="orangeForm-pass" class="">Your password</label>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-danger">Sign up</button>
+                            </div>
+                        </form>
                         <!-- Form register -->
                     </div>
                     <!--Grid column-->
@@ -237,4 +216,3 @@
         crossorigin="anonymous"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="assets/js/mdb.min.js"></script>
-
