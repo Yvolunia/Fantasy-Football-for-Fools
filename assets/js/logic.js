@@ -109,6 +109,7 @@ $(document).ready(function() {
                         // Create Choose button
                         var button = $("<button>");
                         button.attr("class", "btn btn-danger playerButtons");
+                        button.data("data-position", posFilter);
                         button.data("data-rank", count);
                         button.data("data-team", response[i].Team);
                         button.data("data-points", response[i].FantasyPoints);
@@ -155,6 +156,7 @@ $(document).ready(function() {
                         var button = $("<button>");
                         button.attr("class", "btn btn-danger playerButtons");
                         button.data("data-playerId", response[i].PlayerID);
+                        button.data("data-position", posFilter);
                         button.data("data-rank", count);
                         button.data("data-name", response[i].Name);
                         button.data("data-team", response[i].Team);
@@ -192,14 +194,16 @@ $(document).ready(function() {
         var dataNumber = $(this).data('data-number');
         var dataTeam = $(this).data('data-team');
         var dataPoints = $(this).data('data-points');
+        var dataPosition = $(this).data('data-position');
         var savedItems = {
             playerID: dataPlayerId,
+            position: dataPosition,
             team: dataTeam,
         };
 
         savedPicks.push(savedItems);
 
-        if (pickCount < 10) {
+        if (pickCount < 9) {
 
             picks.append("<tr></tr>");
             var tr = picks.children().eq(pickCount);
