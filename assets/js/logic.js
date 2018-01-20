@@ -206,6 +206,7 @@ $(document).ready(function() {
     $("#clear").on("click", function() {
         picks.text("");
         $("#warning").text("");
+        pickCount = 0;
     });
 
     $(document).ready(function() {
