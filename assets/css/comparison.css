@@ -86,9 +86,6 @@ td {
 }
 
 .myButton {
-    -moz-box-shadow: 3px 4px 0px 0px #ab1623;
-    -webkit-box-shadow: 3px 4px 0px 0px #ab1623;
-    box-shadow: 3px 4px 0px 0px #ab1623;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d42424), color-stop(1, #bd0d0d));
     background:-moz-linear-gradient(top, #d42424 5%, #bd0d0d 100%);
     background:-webkit-linear-gradient(top, #d42424 5%, #bd0d0d 100%);
@@ -101,7 +98,6 @@ td {
     -webkit-border-radius:5px;
     border-radius:5px;
     border:1px solid #c23434;
-    display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
@@ -110,6 +106,8 @@ td {
     padding:12px 44px;
     text-decoration:none;
     text-shadow:0px 1px 0px #cc5464;
+      margin:auto;
+  display:block;
 }
 .myButton:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bd0d0d), color-stop(1, #d42424));
@@ -124,4 +122,11 @@ td {
 .myButton:active {
     position:relative;
     top:1px;
+}
+
+.card{
+    width: 50%;
+    float: center;
+    margin:auto;
+  display:block;
 }

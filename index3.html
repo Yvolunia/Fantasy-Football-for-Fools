@@ -16,55 +16,18 @@
 </head>
 <header>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar grey lighten-1 fixed-top">
-        <div class="container justify-content-center">
-            <!-- Navbar brand -->
-            <a class="navbar-brand animated bounceInLeft" href="#">
-                    <img src="assets/images/ball.png" alt="football logo">
-                    <h5 id="logo">FFFF</h5>
-                </a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Links -->
-                <ul class="navbar-nav mr-auto white-text animated bounceInLeft">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#how-to">How To</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Highlights</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Top 20 Picks</a>
-                    </li>
-                </ul>
-                <!--Login form -->
-                <form class="form-inline animated bounceInRight">
-                    <div class="md-form form-group">
-                        <i class="fa fa-user prefix blue-text"></i>
-                        <input type="text" id="form2" class="form-control">
-                        <label for="form2" data-error="wrong" data-success="right">Type your username</label>
-                    </div>
-                    <div class="md-form form-group">
-                        <i class="fa fa-lock prefix blue-text"></i>
-                        <input type="password" id="form92" class="form-control validate">
-                        <label for="form92" data-error="wrong" data-success="right">Type your password</label>
-                    </div>
-                    <div class="md-form form-group">
-                        <a class="btn btn-danger">Login</a>
-                    </div>
-                </form>
-            </div>
-            <!-- Collapsible content -->
-        </div>
-    </nav>
+<div class="card">
+                            <h3 class="card-header danger-color white-text">Saved Players</h3>
+                            <div class="card-body">
+                                <ol class="list-group">
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                </ol>
+                            </div>
+                        </div>
     <!--/.Navbar-->
 </header>
 
@@ -73,26 +36,36 @@
         <section class="main-section">
             <h1>{Player Name}</h1>
             <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
-            <table style="width:100%">
-                <tr>
-                    <th>Rec Yards</th>
-                    <td> Value </td>
-                </tr>
-                <tr>
-                    <th>Rec Touchdown</th>
-                    <td> Value</td>
-                </tr>
-                <tr>
-                    <th>Rush Yards</th>
-                    <td>Value</td>
-                </tr>
-                <tr>
-                    <th> Rushing Yards </th>
-                    <td> Value </td>
-                    <tr>
-                        <th> Fumbles </th>
-                        <td> Value </td>
-            </table>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
             <button class="myButton" href="#">Select Player</button>
         </section>
         <section class="main-section2">
