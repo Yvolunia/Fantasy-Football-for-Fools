@@ -1,16 +1,24 @@
 $(document).ready(function() {
 
     // Global Variables
-    var baseRankingUrl = 'http://api.fantasy.nfl.com/v1/players/editordraftranks?'; //season=2017&count=100&offset=0&format=json'
-    var basePlayerUrl = 'http://api.fantasy.nfl.com/v1/players/details?'; //playerId=2540175&statType=seasonStats&format=json'
-    var positions = ["K", "D/ST", "TE", "WR", "RB", "QB"];
-    var positionCount = [15, 15, 25, 50, 50, 25];
-    var offset = 0;
-    var count = 1;
+
+    // Text Variables    
+    var subscriptionKey = "b204be46c1494d69be425ea909a27795";
+
+    // Number Variable
     var pickCount = 0;
+    var count = 1;
+
+    // Date Variables
     var today = new Date();
     var lastYear = today.getFullYear() - 1;
-    var subscriptionKey = "b204be46c1494d69be425ea909a27795";
+
+    // Array Variables
+    var positions = ["K", "D/ST", "TE", "WR", "RB", "QB"];
+    var positionCount = [15, 15, 25, 50, 50, 25];
+    var savedPicks = [""];
+
+    // jQuery Variables
     var tbody = $("#list")
         .children()
         .eq(1)
@@ -33,6 +41,21 @@ $(document).ready(function() {
     }
 
     // Runs on initialization
+
+    // Initialize Firebase
+
+    var config = {
+        apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
+        authDomain: "fantasyfootballauthui.firebaseapp.com",
+        databaseURL: "https://fantasyfootballauthui.firebaseio.com",
+        projectId: "fantasyfootballauthui",
+        storageBucket: "fantasyfootballauthui.appspot.com",
+        messagingSenderId: "660825767375"
+    };
+
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
 
     // Creates buttons for all the positions in the positions array to pushes them to the top of the table
     // Assigns 2 data attributes to be used in the On Click event
@@ -169,6 +192,12 @@ $(document).ready(function() {
         var dataNumber = $(this).data('data-number');
         var dataTeam = $(this).data('data-team');
         var dataPoints = $(this).data('data-points');
+        var savedItems = {
+            playerID: dataPlayerId,
+            team: dataTeam,
+        };
+
+        savedPicks.push(savedItems);
 
         if (pickCount < 10) {
 
@@ -207,8 +236,10 @@ $(document).ready(function() {
         picks.text("");
         $("#warning").text("");
         pickCount = 0;
+        savedPicks = [""];
     });
 
+    // Sticky Saved players section
     $(document).ready(function() {
         var top = $('.sticky-scroll-box').offset().top;
         $(window).scroll(function(event) {
@@ -221,75 +252,8 @@ $(document).ready(function() {
         });
     });
 
-
+    // When Continue button is click, user selections updated to Firebase
+    $("#continue").on("click", function() {
+        database.ref().push(savedPicks);
+    });
 });
-
-// Sticky Saved players section
-
-
-// Initialize Firebase
-
-var config = {
-    apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
-    authDomain: "fantasyfootballauthui.firebaseapp.com",
-    databaseURL: "https://fantasyfootballauthui.firebaseio.com",
-    projectId: "fantasyfootballauthui",
-    storageBucket: "fantasyfootballauthui.appspot.com",
-    messagingSenderId: "660825767375"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
-
-// Creates local "temporary" object for holding player data
-
-
-var playerData = {
-    myPlayer: dataPlayerId,
-    myTeam: dataTeam,
-};
-
-
-// When Continue button is click, user selections updated to Firebase
-
-$("#continue").on("click", function() {
-    database.ref().push(playerData);
-});
-
-console.log(myPlayer);
-console.log(myTeam);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
