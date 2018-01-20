@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fantasy Football For Fools</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="assets/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="assets/css/toptwenty.css" rel="stylesheet">
+
+    <!-- Firebase Reference -->
+
+      <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar grey lighten-1 fixed-top">
+            <div class="container justify-content-center">
+                <!-- Navbar brand -->
+                <a class="navbar-brand animated bounceInLeft" href="#">
+                    <img src="assets/images/ball.png" alt="football logo">
+                    <h5 id="logo">FFFF</h5>
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto white-text animated bounceInLeft">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://yvolunia.github.io/Fantasy-Football-for-Fools/#">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://yvolunia.github.io/Fantasy-Football-for-Fools/#">How To</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Highlights</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://yvolunia.github.io/Fantasy-Football-for-Fools/toptwenty.html">Top 20 Picks</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Collapsible content -->
+            </div>
+        </nav>
+        <!--/.Navbar-->
+    </header>
+    <!--Main Navigation-->
+    <!--Main-->
+    <main class="mt-5">
+        <!--Page Title-->
+        <div class="jumbotron view hm-black-light">
+            <h1 class="h1-responsive">Top Twenty Picks</h1>
+            <hr class="hr-light">
+            <p class="lead">This is where you will sort through and pick your Fantasy Football team!</p>
+        </div>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-7">
+                    <!--Panel-->
+                    <div class="card">
+                        <h3 id="tableLable" class="card-header danger-color white-text">Top Picks</h3>
+                        <div id="topTable" class="card-body">
+                            <table id="list" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th> </th>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Team</th>
+                                        <th>Jersey Number</th>
+                                        <th>Last Year's Fantasy Points</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/.Panel-->
+                </div>
+                <div class="col-lg-5">
+                    <!--Panel-->
+                    <div class="sticky-scroll-box card">
+                        <h3 class="card-header danger-color white-text">Saved Players</h3>
+                        <div class="card-body">
+                            <table id="picks" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Pick Number</th>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Team</th>
+                                        <th>Jersey Number</th>
+                                        <th>Last Year's Fantasy Points</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pickHolder">
+                                </tbody>
+                            </table>
+                            <button id="clear" class="btn btn-danger">Clear Picks</button>
+                            <div id="warning"></div>
+                        </div>
+                    </div>
+                    <!--/.Panel-->
+                    <hr class="my-5">
+                </div>
+            </div>
+            <section id="review-list">
+                <!--Section heading-->
+                <h1 class="font-bold">Review Your Picks</h1>
+                <div class="row mb-4">
+                    <div class="col-lg-6">
+                        <h4>Now that you have saved your players, continue on to review thier statistics.</h4>
+                        <a href="#" id="continue" class="btn btn-danger waves-effect waves-light">Continue</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
+    </main>
+    <!--Main-->
+    <!--Footer-->
+    <footer class="page-footer blue center-on-small-only">
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2018 Copyright: HANDSOME LINCOLN POTATOES
+            </div>
+        </div>
+        <!--/.Copyright-->
+    </footer>
+    <!--Footer-->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="assets/js/mdb.min.js"></script>
+    <!--Our JavaScript File-->
+    <script type="text/javascript" src="assets/js/logic.js"></script>
+
+</body>
+
+</html>

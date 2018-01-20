@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="en-us">
-
-  <head>
-=======
 <html lang="en">
 
 <head>
@@ -26,7 +21,8 @@
     <!--Main Navigation-->
     <header>
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar grey lighten-1 fixed-top">
+        
+<nav class="navbar navbar-expand-lg navbar grey lighten-1 fixed-top">
             <div class="container justify-content-center">
                 <!-- Navbar brand -->
                 <a class="navbar-brand animated bounceInLeft" href="#">
@@ -37,14 +33,13 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <!-- Collapsible content -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <!-- Links -->
                     <ul class="navbar-nav mr-auto white-text animated bounceInLeft">
                         <li class="nav-item active">
-                            <a class="nav-link" href="https://yvolunia.github.io/Fantasy-Football-for-Fools/#">Home
+                            <a class="nav-link" href="#">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -52,12 +47,32 @@
                             <a class="nav-link" href="#how-to">How To</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://yvolunia.github.io/Fantasy-Football-for-Fools/toptwenty.html">Top 20 Picks</a>
+                            <a class="nav-link" href="#">Highlights</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Top 20 Picks</a>
                         </li>
                     </ul>
                     <!--Login form -->
-                   
-                   
+                    <form class="form-inline animated bounceInRight">
+
+                        <div class="md-form form-group">
+                            <i class="fa fa-user prefix blue-text"></i>
+                            <input type="text" id="form2" class="form-control">
+                            <label for="form2" data-error="wrong" data-success="right">Type your username</label>
+                        </div>
+
+                        <div class="md-form form-group">
+                            <i class="fa fa-lock prefix blue-text"></i>
+                            <input type="password" id="form92" class="form-control validate">
+                            <label for="form92" data-error="wrong" data-success="right">Type your password</label>
+                        </div>
+
+                        <div class="md-form form-group">
+                            <a class="btn btn-danger">Login</a>
+                        </div>
+
+                    </form>
                 </div>
                 <!-- Collapsible content -->
             </div>
@@ -74,7 +89,7 @@
                         <hr class="hr-light animated fadeIn">
                         <!--Description-->
                         <h4 class="white-text my-4 animated bounceInUp" id="description">Fantasy Football made easy for the absolute rookie!</h4>
-                        <a href="#how-to"><button type="button" class="btn btn-danger animated bounceInUp" href="#">Get Started!</button></a>
+                        <button type="button" class="btn btn-danger animated bounceInUp" href="#how-to">Get Started!</button>
                     </div>
                 </div>
             </div>
@@ -98,49 +113,28 @@
 
                     <!--Grid column-->
                     <div class="col-lg-5 mb-r center-on-small-only">
-                        <!-- Firebase Initialization code -->
-
-                        <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-                        <script>
-                            // Initialize Firebase
-                            var config = {
-                                apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
-                                authDomain: "fantasyfootballauthui.firebaseapp.com",
-                                databaseURL: "https://fantasyfootballauthui.firebaseio.com",
-                                projectId: "fantasyfootballauthui",
-                                storageBucket: "fantasyfootballauthui.appspot.com",
-                                messagingSenderId: "660825767375"
-                            };
-                            firebase.initializeApp(config);
-                        </script>
-
-
-                        <!-- Firebase Sign In Widgets -->
-
-                        <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-                        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-                        <script type="text/javascript">
-                            // FirebaseUI config.
-                            var uiConfig = {
-                                signInSuccessUrl: 'toptwenty.html',
-                                signInOptions: [
-                                    // Leave the lines as is for the providers you want to offer your users.
-                                    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                                    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                                    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                                ],
-                                // Terms of service url.
-                                tosUrl: '<your-tos-url>'
-                            };
-
-                            // Initialize the FirebaseUI Widget using Firebase.
-                            var ui = new firebaseui.auth.AuthUI(firebase.auth());
-                            // The start method will wait until the DOM is loaded.
-                            ui.start('#firebaseui-auth-container', uiConfig);
-                        </script>
-
-                        <div id="firebaseui-auth-container"></div>
-
+                        <!-- Form register -->
+                        <form>
+                            <p class="h5 text-center mb-4">Register</p>
+                            <div class="md-form">
+                                <i class="fa fa-user prefix blue-text"></i>
+                                <input type="text" id="orangeForm-name" class="form-control">
+                                <label for="orangeForm-name">Your name</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix blue-text"></i>
+                                <input type="text" id="orangeForm-email" class="form-control">
+                                <label for="orangeForm-email">Your email</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix blue-text"></i>
+                                <input type="password" id="orangeForm-pass" class="form-control">
+                                <label for="orangeForm-pass" class="">Your password</label>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-danger">Sign up</button>
+                            </div>
+                        </form>
                         <!-- Form register -->
                     </div>
                     <!--Grid column-->
@@ -168,8 +162,7 @@
                             <div class="col-10">
                                 <h5 class="font-bold text-left mb-3 dark-grey-text">Choose a player category</h5>
                                 <p class="grey-text text-left">Select a position to see the top picks in that category. Then select specific players to
-                                    review.
-                                </p>
+                                    review.</p>
                             </div>
                         </div>
                         <!--Grid row-->
@@ -223,4 +216,3 @@
         crossorigin="anonymous"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="assets/js/mdb.min.js"></script>
->>>>>>> 1910223cf2f50e593db6c4622bc7e535537ed02a
