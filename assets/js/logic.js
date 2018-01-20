@@ -255,5 +255,7 @@ $(document).ready(function() {
     // When Continue button is click, user selections updated to Firebase
     $("#continue").on("click", function() {
         database.ref().push(savedPicks);
+
+        <link  href="https://yvolunia.github.io/Fantasy-Football-for-Fools/index4.html"
     });
 });
