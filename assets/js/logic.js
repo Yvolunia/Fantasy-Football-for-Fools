@@ -208,44 +208,53 @@ $(document).ready(function() {
         $("#warning").text("");
     });
 
+    $(document).ready(function() {
+        var top = $('.sticky-scroll-box').offset().top;
+        $(window).scroll(function(event) {
+            var y = $(this).scrollTop();
+            if (y >= top)
+                $('.sticky-scroll-box').addClass('fixed');
+            else
+                $('.sticky-scroll-box').removeClass('fixed');
+            $('.sticky-scroll-box').width($('.sticky-scroll-box').parent().width());
+        });
+    });
+
 
 });
 
- // Initialize Firebase
+// Sticky Saved players section
 
-  var config = {
+
+
+// Initialize Firebase
+
+var config = {
     apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
     authDomain: "fantasyfootballauthui.firebaseapp.com",
     databaseURL: "https://fantasyfootballauthui.firebaseio.com",
     projectId: "fantasyfootballauthui",
     storageBucket: "fantasyfootballauthui.appspot.com",
     messagingSenderId: "660825767375"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 
- // Creates local "temporary" object for holding player data
+// Creates local "temporary" object for holding player data
 
 
 var playerData = {
-myPlayer: dataPlayerId,
-myTeam: dataTeam,
+    myPlayer: dataPlayerId,
+    myTeam: dataTeam,
 };
 
 
 // When Continue button is click, user selections updated to Firebase
 
 $("#continue").on("click", function() {
-  database.ref().push(playerData);
+    database.ref().push(playerData);
 });
 
 console.log(myPlayer);
 console.log(myTeam);
-
-
-
-
-
-
-

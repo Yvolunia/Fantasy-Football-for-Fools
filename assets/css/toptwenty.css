@@ -40,3 +40,9 @@ body {
 #review-list{
     padding-bottom: 40px;
 }
+
+.fixed {
+    position: fixed;
+    top:100px;
+    z-index: 99999;
+}
