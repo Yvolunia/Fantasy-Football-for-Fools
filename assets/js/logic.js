@@ -226,7 +226,6 @@ $(document).ready(function() {
 // Sticky Saved players section
 
 
-
 // Initialize Firebase
 
 var config = {
@@ -258,3 +257,36 @@ $("#continue").on("click", function() {
 
 console.log(myPlayer);
 console.log(myTeam);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
