@@ -256,6 +256,4 @@ $(document).ready(function() {
     $("#continue").on("click", function() {
         database.ref().push(savedPicks);
     });
-
-
 });
