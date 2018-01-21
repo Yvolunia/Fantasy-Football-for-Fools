@@ -1,6 +1,4 @@
 body {
-
-    background: #006600;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,6 +8,21 @@ body {
 
 }
 
+#videos {
+
+ background: url(https://images.unsplash.com/photo-1485827031228-b1736cb1fd06?auto=format&fit=crop&w=967&q=80)no-repeat center center fixed;
+
+}
+
+#header {
+    margin-top: 25px;
+    text-align: center;
+}
+
+h5 {
+    margin-top: 10px;
+    padding-right: 50px;
+}
 
 #myBtn {
     display: none; /* Hidden by default */
@@ -31,6 +44,7 @@ body {
 }
 
 .table-wrapper {
+
 	text-align: center;
     display: block;
     max-height: 500px;
