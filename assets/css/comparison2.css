@@ -1,10 +1,10 @@
 body {
-    background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     color: white;
-    font-size: 28px;
+    font-size: 14px;
+
 
 }
 
@@ -47,8 +47,8 @@ h5 {
 
 	text-align: center;
     display: block;
-    max-height: 300px;
-    overflow-y: auto;
+    max-height: 500px;
+    overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
@@ -64,6 +64,7 @@ h5 {
 }
 
 table.table a {
+
     margin: 0;
     color: white;
     font-weight: bold;
@@ -74,3 +75,4 @@ table.table a {
 	font-size: 45px;
    
 }
+
