@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fantasy Football For Fools</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="assets/css/mdb.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="assets/css/comparison2.css" rel="stylesheet">
+</head>
+
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+   
+    <div id="header">
+      <h3><strong>Fantasy Draft Picks</strong></h3>
+   </div>
+
+   <!-- QB Stat Display --> 
+
+     <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color: #008040; color: black">
+              <h5 class="panel-title"><strong>Quarterback</strong></h5>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='qb-table'>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Passing Yards</th>
+                    <th>Rushing Yards</th>
+                    <th>Total Touchdowns</th>
+                    <th>Interceptions</th>
+                    <th>Fantasy Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+       <!-- Ballcarrier Stat Display --> 
+
+     <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color: #008040; color: black">
+              <h5 class="panel-title"><strong>Ballcarrier</strong></h5>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='bc-table'>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Receiving Yards</th>
+                    <th>Rushing Yards</th>
+                    <th>Total Touchdowns</th>
+                    <th>Fumbles</th>
+                    <th>Fantasy Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+   <!-- Defense Stat Display --> 
+
+     <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color: #008040; color: black">
+              <h5 class="panel-title"><strong>Defense</strong></h5>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='df-table'>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Sacks</th>
+                    <th>Interceptions</th>
+                    <th>Total Touchdowns</th>
+                    <th>Fumbles</th>
+                    <th>Fantasy Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+<!-- Kicker Stat Display --> 
+
+     <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color: #008040; color: black">
+              <h5 class="panel-title"><strong>Kicker</strong></h5>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='k-table'>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Field Goals < 40 Yards</th>
+                    <th>Field Goals > 40 Yards</th>
+                    <th>Extra Points</th>
+                    <th>Missed Field Goals</th>
+                    <th>Fantasy Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+   
+   <!-- Player Video Display --> 
+
+    <div id="videos" class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Quarterback</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Wide Receiver</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Wide Receiver</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Running Back</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Running Back</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Tight End</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Defense</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Kicker</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="auth-image" src="http://placehold.it/200x200" alt="your name">
+                        <div class="card-body">
+                            <p class="card-text">Flex</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/logic2.js"></script>
+</body>
+
+</html>
