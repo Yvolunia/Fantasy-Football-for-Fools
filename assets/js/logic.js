@@ -207,7 +207,7 @@ $(document).ready(function() {
         picks.text("");
         $("#warning").text("");
     });
-
+// Sticky Saved players section
     $(document).ready(function() {
         var top = $('.sticky-scroll-box').offset().top;
         $(window).scroll(function(event) {
@@ -223,7 +223,7 @@ $(document).ready(function() {
 
 });
 
-// Sticky Saved players section
+
 
 
 // Initialize Firebase

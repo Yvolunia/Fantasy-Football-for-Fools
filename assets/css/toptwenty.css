@@ -46,3 +46,7 @@ body {
     top:100px;
     z-index: 99999;
 }
+.sticky-scroll-box{
+    max-height: 500;
+    overflow: scroll;
+}
