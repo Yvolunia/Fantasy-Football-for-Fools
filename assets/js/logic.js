@@ -295,43 +295,4 @@ $("#continue").on("click", function() {
     database.ref().push(playerData);
 });
 
-console.log(myPlayer);
-console.log(myTeam);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <link  href="https://yvolunia.github.io/Fantasy-Football-for-Fools/index4.html"
-    });
 });
