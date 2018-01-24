@@ -292,7 +292,7 @@ var playerData = {
 // When Continue button is click, user selections updated to Firebase
 
 $("#continue").on("click", function() {
-    database.ref().set(playerData);
+    database.ref().push(playerData);
 });
 
 });
