@@ -18,7 +18,8 @@ $(document).ready(function() {
 
             // Firebase event for adding train to the database and a row in the html when a user adds an entry
             database.ref().on("value", function(childSnapshot, prevChildKey) {
-                console.log(childSnapshot.val());});
+                console.log(childSnapshot.val());
+            });
 
                 var picks = "";
 
