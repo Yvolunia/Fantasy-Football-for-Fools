@@ -13,131 +13,121 @@
     <link href="assets/css/mdb.min.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <link href="assets/css/comparison2.css" rel="stylesheet">
 </head>
 
 <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
-   
     <div id="header">
-      <h3><strong>Fantasy Draft Picks</strong></h3>
-   </div>
-
-   <!-- QB Stat Display --> 
-
-     <div class="panel panel-primary">
-            <div class="panel-heading" style="background-color: #008040; color: black">
-              <h5 class="panel-title"><strong>Quarterback</strong></h5>
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover" id='qb-table'>
+        <h3><strong>Fantasy Draft Picks</strong></h3>
+    </div>
+    <!-- QB Stat Display -->
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color: #008040; color: black">
+            <h5 class="panel-title"><strong>Quarterback</strong></h5>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover" id='qb-table'>
                 <thead>
-                  <tr>
-                    <th>Player</th>
-                    <th>Team</th>
-                    <th>Position</th>
-                    <th>Passing Yards</th>
-                    <th>Rushing Yards</th>
-                    <th>Total Touchdowns</th>
-                    <th>Interceptions</th>
-                    <th>Fantasy Points</th>
-                  </tr>
+                    <tr>
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th>Position</th>
+                        <th>Passing Yards</th>
+                        <th>Rushing Yards</th>
+                        <th>Total Touchdowns</th>
+                        <th>Interceptions</th>
+                        <th>Fantasy Points</th>
+                    </tr>
                 </thead>
                 <tbody>
                 </tbody>
-              </table>
-            </div>
-          </div>
-
-       <!-- Ballcarrier Stat Display --> 
-
-     <div class="panel panel-primary">
-            <div class="panel-heading" style="background-color: #008040; color: black">
-              <h5 class="panel-title"><strong>Ballcarrier</strong></h5>
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover" id='bc-table'>
+            </table>
+        </div>
+    </div>
+    <!-- Ballcarrier Stat Display -->
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color: #008040; color: black">
+            <h5 class="panel-title"><strong>Ballcarrier</strong></h5>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover" id='bc-table'>
                 <thead>
-                  <tr>
-                    <th>Player</th>
-                    <th>Team</th>
-                    <th>Position</th>
-                    <th>Receiving Yards</th>
-                    <th>Rushing Yards</th>
-                    <th>Total Touchdowns</th>
-                    <th>Fumbles</th>
-                    <th>Fantasy Points</th>
-                  </tr>
+                    <tr>
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th>Position</th>
+                        <th>Receiving Yards</th>
+                        <th>Rushing Yards</th>
+                        <th>Total Touchdowns</th>
+                        <th>Fumbles</th>
+                        <th>Fantasy Points</th>
+                    </tr>
                 </thead>
                 <tbody>
                 </tbody>
-              </table>
-            </div>
-          </div>
-
-   <!-- Defense Stat Display --> 
-
-     <div class="panel panel-primary">
-            <div class="panel-heading" style="background-color: #008040; color: black">
-              <h5 class="panel-title"><strong>Defense</strong></h5>
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover" id='df-table'>
+            </table>
+        </div>
+    </div>
+    <!-- Defense Stat Display -->
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color: #008040; color: black">
+            <h5 class="panel-title"><strong>Defense</strong></h5>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover" id='df-table'>
                 <thead>
-                  <tr>
-                    <th>Player</th>
-                    <th>Team</th>
-                    <th>Position</th>
-                    <th>Sacks</th>
-                    <th>Interceptions</th>
-                    <th>Total Touchdowns</th>
-                    <th>Fumbles</th>
-                    <th>Fantasy Points</th>
-                  </tr>
+                    <tr>
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th>Position</th>
+                        <th>Sacks</th>
+                        <th>Interceptions</th>
+                        <th>Total Touchdowns</th>
+                        <th>Fumbles</th>
+                        <th>Fantasy Points</th>
+                    </tr>
                 </thead>
                 <tbody>
                 </tbody>
-              </table>
-            </div>
-          </div>
-
-<!-- Kicker Stat Display --> 
-
-     <div class="panel panel-primary">
-            <div class="panel-heading" style="background-color: #008040; color: black">
-              <h5 class="panel-title"><strong>Kicker</strong></h5>
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover" id='k-table'>
+            </table>
+        </div>
+    </div>
+    <!-- Kicker Stat Display -->
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color: #008040; color: black">
+            <h5 class="panel-title"><strong>Kicker</strong></h5>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover" id='k-table'>
                 <thead>
-                  <tr>
-                    <th>Player</th>
-                    <th>Team</th>
-                    <th>Position</th>
-                    <th>Field Goals < 40 Yards</th>
-                    <th>Field Goals > 40 Yards</th>
-                    <th>Extra Points</th>
-                    <th>Missed Field Goals</th>
-                    <th>Fantasy Points</th>
-                  </tr>
+                    <tr>
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th>Position</th>
+                        <th>Field Goals
+                            < 40 Yards</th>
+                                <th>Field Goals > 40 Yards</th>
+                                <th>Extra Points</th>
+                                <th>Missed Field Goals</th>
+                                <th>Fantasy Points</th>
+                    </tr>
                 </thead>
                 <tbody>
                 </tbody>
-              </table>
-            </div>
-          </div>
-
-   
-   <!-- Player Video Display --> 
-
+            </table>
+        </div>
+    </div>
+    <!-- Player Video Display -->
     <div id="videos" class="album py-5 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/JaUZtImgfNQ">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/JaUZtImgfNQ">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Quarterback</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -147,9 +137,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/ccXj74FmeAE">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/ccXj74FmeAE">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Wide Receiver</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -159,9 +148,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/SJHWtzDmg1Q">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/SJHWtzDmg1Q">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Wide Receiver</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -171,9 +159,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/y4y63oC9tcc">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/y4y63oC9tcc">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Running Back</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -183,9 +170,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/UeNi0UhRszQ">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/UeNi0UhRszQ">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Running Back</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -195,9 +181,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/dxbUwhMrgCI">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/dxbUwhMrgCI">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Tight End</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -207,9 +192,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/B6dJmlBrIYs">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/B6dJmlBrIYs">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Defense</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -219,9 +203,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/d1PLjT7z9KE">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/d1PLjT7z9KE">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Kicker</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -231,9 +214,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                      <iframe width="300" height="300"
-                        src="https://www.youtube.com/embed/3uSLJAIltrU">
-                      </iframe>
+                        <iframe width="300" height="300" src="https://www.youtube.com/embed/3uSLJAIltrU">
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Flex</p>
                             <div class="d-flex justify-content-between align-items-center">
