@@ -46,6 +46,7 @@ $(document).ready(function() {
 
     // Firebase event for adding train to the database and a row in the html when a user adds an entry
     database.ref().on("value", function(childSnapshot, prevChildKey) {
+    	console.log(childSnapshot);
         for (v in childSnapshot) {
             for (var i = 0; i < v.length; i++) {
                 if (v[i].playerID == '') {
@@ -60,6 +61,8 @@ $(document).ready(function() {
                             url: myUrl
                         })
                         .done(function(response) {
+
+                        	console.log(response);
 
                             for (var j = 0; i < response.length; i++) {
                                 if (v[i].team === response[j].Team) {}
@@ -95,6 +98,8 @@ $(document).ready(function() {
                         })
                         .done(function(response) {
 
+                        	console.log(response);
+
 
 
                             tbodyQb.append("<tr></tr>");
@@ -128,6 +133,8 @@ $(document).ready(function() {
                             url: myUrl
                         })
                         .done(function(response) {
+
+                        	console.log(response);
 
 
 
@@ -164,6 +171,8 @@ $(document).ready(function() {
                         })
                         .done(function(response) {
 
+                        	console.log(response);
+
 
 
                             tbodyK.append("<tr></tr>");
@@ -193,8 +202,6 @@ $(document).ready(function() {
         }
 
     });
-}
-}
 });
 
 
@@ -217,7 +224,3 @@ function topFunction() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-
-
-
-});
