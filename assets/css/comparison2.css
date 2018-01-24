@@ -1,79 +1,43 @@
 body {
-     background-color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#intro {
+    background: url(https://images.unsplash.com/photo-1485827031228-b1736cb1fd06?auto=format&fit=crop&w=967&q=80)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.navbar {
+    background: url(http://www.designbolts.com/wp-content/uploads/2012/12/SubtleNet-White-Simple-Seamless-Patterns-For-Website-Backgrounds.jpg)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.navabar-toggler {
+    color: #4285F4;
+}
+
+#logo {
+    color: #ff4444;
+}
+.jumbotron{
+    padding: 100px;
+    background: url(https://images.unsplash.com/photo-1485827031228-b1736cb1fd06?auto=format&fit=crop&w=967&q=80)no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     color: white;
-    font-size: 14px;
-
-
-}
-
-#videos {
-
- background: url(https://images.unsplash.com/photo-1485827031228-b1736cb1fd06?auto=format&fit=crop&w=967&q=80)no-repeat center center fixed;
-
-}
-
-#header {
-    margin-top: 25px;
     text-align: center;
+    text-shadow: 2px 2px black;
 }
 
-h5 {
-    margin-top: 10px;
-    padding-right: 50px;
+.table{
+overflow-y: hidden;
 }
-
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: grey; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-}
-
-#myBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
-}
-
-.table-wrapper {
-
-	text-align: center;
-    display: block;
-    max-height: 500px;
-    overflow-y: hidden;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: white;
-    font-weight: bold;
-}
-
-table.table a {
-
-    margin: 0;
-    color: white;
-    font-weight: bold;
-}
-
-.white-text {
-    text-align: center;
-	font-size: 45px;
-   
+.row{
+    margin-bottom: 20px;
 }
 
