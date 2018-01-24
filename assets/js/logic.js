@@ -49,8 +49,7 @@ $(document).ready(function() {
         authDomain: "fantasyfootballauthui.firebaseapp.com",
         databaseURL: "https://fantasyfootballauthui.firebaseio.com",
         projectId: "fantasyfootballauthui",
-        storageBucket: "",
-        // storageBucket: "fantasyfootballauthui.appspot.com",
+        storageBucket: "fantasyfootballauthui.appspot.com",
         messagingSenderId: "660825767375"
     };
 
