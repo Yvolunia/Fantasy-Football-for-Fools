@@ -46,8 +46,8 @@ $(document).ready(function() {
 
     // Firebase event for adding train to the database and a row in the html when a user adds an entry
     database.ref().on("value", function(childSnapshot, prevChildKey) {
-    	console.log(childSnapshot);
-        for (v in childSnapshot) {
+    	console.log(childSnapshot.val());
+        for (v in childSnapshot.val()) {
             for (var i = 0; i < v.length; i++) {
                 if (v[i].playerID == '') {
 
