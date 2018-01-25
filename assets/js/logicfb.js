@@ -19,7 +19,7 @@ $(document).ready(function() {
     var savedPicks = [""];
 
     // var uid = localStorage.getItem("uid");
-    var uid = "uid";
+    var uid = "email";
 
     var config = {
         apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
