@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     // var uid = localStorage.getItem("email");
 
-    var userId = firebase.auth().currentUser.email;
+    var userId = firebase.auth().currentUser.displayName;
 
     console.log(userID);
 
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    var playerRef = database.ref("users/" + uid);
+    var playerRef = database.ref("users/" + userID);
 
     // jQuery Variables
     var tbody = $("#list")
