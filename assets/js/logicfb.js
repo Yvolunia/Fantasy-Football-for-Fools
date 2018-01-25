@@ -20,9 +20,9 @@ $(document).ready(function() {
 
     // var uid = localStorage.getItem("email");
 
-    var userId = firebase.auth().currentUser.displayName;
+    // var userId = firebase.auth().currentUser.displayName;
 
-    console.log(userID);
+    // console.log(userID);
 
     var config = {
         apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
