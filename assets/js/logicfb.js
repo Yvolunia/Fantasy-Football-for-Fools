@@ -261,6 +261,20 @@ $(document).ready(function() {
     $("#continue").on("click", function(event) {
         event.preventDefault();
         playerRef.database.ref("users/" + uid).push(savedPicks);
+
+     // Firebase event for adding train to the database and a row in the html when a user adds an entry
+ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+  console.log(childSnapshot.val());
+  // Store everything into a variable.
+  var playerPick = childSnapshot.val().playerID;
+  var positionPick = childSnapshot.val().position;
+  var teamPick = childSnapshot.val().team;
+  console.log(playerPick);
+  console.log(positionPick);
+  console.log(teamPick);
+
+     };
+
     });
 });
 
