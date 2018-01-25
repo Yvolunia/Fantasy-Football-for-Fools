@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     var userId = firebase.auth().currentUser.email;
 
-    console.log(userID)
+    console.log(userID);
 
     var config = {
         apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
@@ -266,6 +266,7 @@ $(document).ready(function() {
         event.preventDefault();
         playerRef.database.ref("users/" + userID).push(savedPicks);
         console.log(savedPicks)
+
 
     });
 });
