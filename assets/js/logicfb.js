@@ -18,10 +18,7 @@ $(document).ready(function() {
     var positionCount = [15, 15, 25, 50, 50, 25];
     var savedPicks = [""];
 
-    // var uid = localStorage.getItem("uid");
-    
-    var uid = firebase.auth().currentUser.uid;
-    console.log(uid);
+    var uid = localStorage.getItem("email");
 
     var config = {
         apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
@@ -36,10 +33,7 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-
-
     var playerRef = database.ref("users/" + uid);
-    console.log(uid);
 
     // jQuery Variables
     var tbody = $("#list")
@@ -268,6 +262,5 @@ $(document).ready(function() {
         event.preventDefault();
         playerRef.database.ref("users/" + uid).push(savedPicks);
         console.log(savedPicks);
-
     });
 });
