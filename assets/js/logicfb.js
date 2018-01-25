@@ -18,7 +18,7 @@ $(document).ready(function() {
     var positionCount = [15, 15, 25, 50, 50, 25];
     var savedPicks = [""];
 
-    var uid = localStorage.getItem("email");
+    var uid = localStorage.getItem(email);
     console.log(uid);
 
     var config = {
