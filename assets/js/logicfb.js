@@ -261,7 +261,7 @@ $(document).ready(function() {
     // When Continue button is click, user selections updated to Firebase
     $("#continue").on("click", function(event) {
         event.preventDefault();
-        playerRef.database.ref("players/" + uid + "/team").push(savedPicks);
+        playerRef.database.ref("users/" + uid).push(savedPicks);
     });
 });
 
