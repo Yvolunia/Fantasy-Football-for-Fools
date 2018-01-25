@@ -19,6 +19,7 @@ $(document).ready(function() {
     var savedPicks = [""];
 
     var uid = localStorage.getItem("email");
+    console.log(uid);
 
     var config = {
         apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
@@ -261,6 +262,7 @@ $(document).ready(function() {
     $("#continue").on("click", function(event) {
         event.preventDefault();
         playerRef.database.ref("users/" + uid).push(savedPicks);
+        console.log(savedPicks);
 
     });
 });
