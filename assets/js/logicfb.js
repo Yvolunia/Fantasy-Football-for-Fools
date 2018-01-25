@@ -261,7 +261,6 @@ $(document).ready(function() {
     $("#continue").on("click", function(event) {
         event.preventDefault();
         playerRef.database.ref("users/" + uid).push(savedPicks);
-
     });
 });
 
