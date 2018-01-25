@@ -45,4 +45,9 @@ body {
     position: fixed;
     top:100px;
     z-index: 99999;
+    bottom: 100px;
+}
+.sticky-scroll-box{
+    max-height: 500;
+    overflow: scroll;
 }
