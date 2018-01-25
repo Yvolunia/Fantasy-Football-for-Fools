@@ -18,7 +18,9 @@ $(document).ready(function() {
     var positionCount = [15, 15, 25, 50, 50, 25];
     var savedPicks = [""];
 
-    var uid = localStorage.getItem("email");
+    // var uid = localStorage.getItem("uid");
+    
+    var uid = firebase.auth().currentUser.uid;
     console.log(uid);
 
     var config = {
@@ -34,7 +36,10 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
+
+
     var playerRef = database.ref("users/" + uid);
+    console.log(uid);
 
     // jQuery Variables
     var tbody = $("#list")
