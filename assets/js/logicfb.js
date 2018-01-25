@@ -18,7 +18,11 @@ $(document).ready(function() {
     var positionCount = [15, 15, 25, 50, 50, 25];
     var savedPicks = [""];
 
-    var uid = localStorage.getItem("email");
+    // var uid = localStorage.getItem("email");
+
+    var userId = firebase.auth().currentUser.email;
+
+    console.log(userID)
 
     var config = {
         apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
@@ -260,7 +264,8 @@ $(document).ready(function() {
     // When Continue button is click, user selections updated to Firebase
     $("#continue").on("click", function(event) {
         event.preventDefault();
-        playerRef.database.ref("users/" + uid).push(savedPicks);
+        playerRef.database.ref("users/" + userID).push(savedPicks);
+        console.log(savedPicks)
 
     });
 });
