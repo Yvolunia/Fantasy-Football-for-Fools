@@ -52,7 +52,7 @@ $(document).ready(function() {
         if (user) {
             // User is signed in.
             event.preventDefault();
-            currUser = user.displayName;
+            currUser = user.uid;
             return firebase.database().ref('/users/' + currUser).once('value').then(function(snapshot) {
                 console.log(snapshot);
                 var lastArray = snapshot.users[currUser[Object.keys(snapshot.users[currUser])[Object.keys(snapshot.users[currUser]).length - 1]]];

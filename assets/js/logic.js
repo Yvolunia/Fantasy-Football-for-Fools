@@ -264,7 +264,7 @@ $(document).ready(function() {
             if (user) {
                 // User is signed in.
                 event.preventDefault();
-                database.ref("users/" + user.displayName).push(savedPicks);
+                database.ref("users/" + user.uid).push(savedPicks);
                 console.log(savedPicks);
                 window.open("FinalDraft.html", "_self");
                 // ...
