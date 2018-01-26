@@ -1,5 +1,24 @@
 $(document).ready(function() {
 
+    // Initialize Firebase
+
+    var config = {
+        apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
+        authDomain: "fantasyfootballauthui.firebaseapp.com",
+        databaseURL: "https://fantasyfootballauthui.firebaseio.com",
+        projectId: "fantasyfootballauthui",
+        storageBucket: "fantasyfootballauthui.appspot.com",
+        messagingSenderId: "660825767375"
+    };
+
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+    console.log(firebase.auth());
+    console.log(firebase.auth().currentUser);
+    console.log(firebase.auth().currentUser.uid);
+
     // Global Variables
 
     // Text Variables    
@@ -41,21 +60,6 @@ $(document).ready(function() {
     }
 
     // Runs on initialization
-
-    // Initialize Firebase
-
-    var config = {
-        apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
-        authDomain: "fantasyfootballauthui.firebaseapp.com",
-        databaseURL: "https://fantasyfootballauthui.firebaseio.com",
-        projectId: "fantasyfootballauthui",
-        storageBucket: "fantasyfootballauthui.appspot.com",
-        messagingSenderId: "660825767375"
-    };
-
-    firebase.initializeApp(config);
-
-    var database = firebase.database();
 
     // Creates buttons for all the positions in the positions array to pushes them to the top of the table
     // Assigns 2 data attributes to be used in the On Click event
