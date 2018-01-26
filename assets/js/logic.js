@@ -109,6 +109,7 @@ $(document).ready(function() {
                         // Create Choose button
                         var button = $("<button>");
                         button.attr("class", "btn btn-danger playerButtons");
+                        button.data("data-playerId", response[i].PlayerID);
                         button.data("data-position", posFilter);
                         button.data("data-rank", count);
                         button.data("data-team", response[i].Team);
