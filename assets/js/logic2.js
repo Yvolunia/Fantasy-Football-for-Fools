@@ -53,16 +53,14 @@ $(document).ready(function() {
             // User is signed in.
             event.preventDefault();
             currUser = user.uid;
-            var ref =  firebase.database().ref();
-            return ref.child('users').equalTo(currUser).once('value').then(function(snapshot) {
-                
+            firebase.database().ref('users/').once('value').then(function(snapshot) {
                 console.log(snapshot);
-                // var users = snapshot.users;
-                // console.log(users);
-                // var oneUser = users[currUser];
-                // console.log(oneUser);
-                // var lastArray = oneUser[Object.keys(oneUser)[Object.keys(oneUser).length - 1]];
-                // console.log(lastArray);
+                var users = snapshot.users;
+                console.log(users);
+                var oneUser = users[currUser];
+                console.log(oneUser);
+                var lastArray = oneUser[Object.keys(oneUser)[Object.keys(oneUser).length - 1]];
+                console.log(lastArray);
                 // ...
             });
             // ...
