@@ -53,7 +53,7 @@ $(document).ready(function() {
             // User is signed in.
             event.preventDefault();
             currUser = user.uid;
-            firebase.database().ref('users/').once('value').then(function(snapshot) {
+            return firebase.database().ref('users/').once('value').then(function(snapshot) {
                 console.log(snapshot);
                 var users = snapshot.users;
                 console.log(users);
