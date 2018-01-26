@@ -55,6 +55,7 @@ $(document).ready(function() {
             currUser = user.uid;
             return firebase.database().ref('users/').once('value').then(function(snapshot) {
                 snapshot.forEach(function(userSnapshot) {
+                    console.log(userSnapshot);
                     var username = userSnapshot.val();
                     var oneUser = username[currUser];
                     console.log(oneUser);
