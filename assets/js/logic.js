@@ -28,7 +28,7 @@ $(document).ready(function() {
             uid = user.uid;
             var providerData = user.providerData;
             console.log("WELCOME TO THE BIG SHOW! " + uid);
-            console.log(email);
+            console.log(user.email);
             // ...
         } else {
             // User is signed out.
