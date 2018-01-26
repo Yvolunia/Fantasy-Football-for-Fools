@@ -54,7 +54,7 @@ $(document).ready(function() {
             event.preventDefault();
             currUser = user.uid;
             var ref =  firebase.database().ref();
-            return ref.child('users').orderByChild('uid').equalTo(currUser).once('value').then(function(snapshot) {
+            return ref.child('users').equalTo(currUser).once('value').then(function(snapshot) {
                 
                 console.log(snapshot);
                 // var users = snapshot.users;
