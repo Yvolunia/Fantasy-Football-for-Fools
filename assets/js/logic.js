@@ -15,8 +15,29 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    // var uid = 
-    var currentUser = firebase.auth().currentUser;
+    var uid = "UNKNOWN";
+
+    firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    uid = user.uid;
+    var providerData = user.providerData;
+    console.log("WELCOME TO THE BIG SHOW! " + uid);
+    // ...
+  } else {
+    // User is signed out.
+    console.log("how dare you log out!");
+    // ...
+  }
+});
+    console.log(uid);
+
+    // var currentUser = firebase.auth().currentUser;
     // console.log(firebase.auth());
 
     // Global Variables
