@@ -55,6 +55,10 @@ $(document).ready(function() {
             currUser = user.displayName;
             return firebase.database().ref('/users/' + currUser).once('value').then(function(snapshot) {
                 console.log(snapshot);
+                var lastArray = snapshot.users.currUser[Object.keys(snapshot.users.currUser)[Object.keys(snapshot.users.currUser).length - 1]];
+                console.log(lastArray);
+                var currentPlayers = snapshot.users.currUser.lastArray;
+                console.log(currentPlayers);
                 // ...
             });
             // ...
