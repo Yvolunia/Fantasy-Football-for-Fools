@@ -15,32 +15,6 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    var uid = "UNKNOWN";
-
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var isAnonymous = user.isAnonymous;
-            uid = user.uid;
-            var providerData = user.providerData;
-            console.log("WELCOME TO THE BIG SHOW! " + uid);
-            console.log(user.email);
-            // ...
-        } else {
-            // User is signed out.
-            console.log("how dare you log out!");
-            // ...
-        }
-    });
-    console.log(uid);
-
-    // var currentUser = firebase.auth().currentUser;
-    // console.log(firebase.auth());
-
     // Global Variables
 
     // Text Variables    
@@ -285,23 +259,20 @@ $(document).ready(function() {
 
     // When Continue button is click, user selections updated to Firebase
     $("#continue").on("click", function() {
-        database.ref().push(savedPicks);
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                event.preventDefault();
+                database.ref("users/" + user.email).push(savedPicks);
+                console.log(savedPicks);
+                // ...
+            } else {
+                // User is signed out.
+                console.log("how dare you log out!");
+                // ...
+            }
+        });
 
-    });
-
-    // Creates local "temporary" object for holding player data
-
-
-    // var playerData = {
-    //     myPlayer: dataPlayerId,
-    //     myTeam: dataTeam,
-    // };
-
-
-    // When Continue button is click, user selections updated to Firebase
-
-    $("#continue").on("click", function() {
-        database.ref().push(playerData);
     });
 
 });
