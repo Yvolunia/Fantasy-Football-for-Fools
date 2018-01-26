@@ -265,8 +265,7 @@ $(document).ready(function() {
                 // User is signed in.
                 event.preventDefault();
                 database.push(savedPicks);
-                var ref =  firebase.database().ref("users/" + user.uid);
-                ref.child('users').child(user.uid).push(savedPicks);
+                var ref =  firebase.database().ref("users/" + user.uid).child('users').child(user.uid).push(savedPicks);
                 console.log(savedPicks);
                 window.open("FinalDraft.html", "_self");
                 // ...
