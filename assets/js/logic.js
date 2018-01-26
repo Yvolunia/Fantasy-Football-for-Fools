@@ -263,7 +263,7 @@ $(document).ready(function() {
             if (user) {
                 // User is signed in.
                 event.preventDefault();
-                database.ref("users/" + user.email).push(savedPicks);
+                database.ref("users/" + user.displayName).push(savedPicks);
                 console.log(savedPicks);
                 // ...
             } else {
