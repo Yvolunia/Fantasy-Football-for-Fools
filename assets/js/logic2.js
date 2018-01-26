@@ -55,6 +55,10 @@ $(document).ready(function() {
             currUser = user.uid;
             return firebase.database().ref('users/' + currUser).equalTo(currUser).once('value').then(function(snapshot) {
                 console.log(snapshot);
+                snapshot.forEach(function(childSnapshot) {
+                    var childKey = childSnapshot.key;
+                    var childData = childSnapshot.val();
+                });
                 var users = snapshot.child("users");
                 console.log(users);
                 var oneUser = users.child(currUser);
