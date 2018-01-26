@@ -55,11 +55,11 @@ $(document).ready(function() {
             currUser = user.uid;
             return firebase.database().ref('users/').once('value').then(function(snapshot) {
                 console.log(snapshot);
-                var users = snapshot.users;
+                var users = snapshot.child("users");
                 console.log(users);
-                var oneUser = users[currUser];
+                var oneUser = users.child(currUser);
                 console.log(oneUser);
-                var lastArray = oneUser[Object.keys(oneUser)[Object.keys(oneUser).length - 1]];
+                var lastArray = oneUser.child(Object.keys(oneUser)[Object.keys(oneUser).length - 1]);
                 console.log(lastArray);
                 // ...
             });
