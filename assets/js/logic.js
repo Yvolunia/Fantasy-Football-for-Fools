@@ -16,8 +16,6 @@ $(document).ready(function() {
     var database = firebase.database();
 
     console.log(firebase.auth().currentUser.uid);
-    // console.log(firebase.auth().X);
-    //console.log(firebase.auth().X.currentUser.uid);
 
     // Global Variables
 
