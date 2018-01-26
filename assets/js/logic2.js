@@ -55,10 +55,12 @@ $(document).ready(function() {
             currUser = user.uid;
             return firebase.database().ref('/users/' + currUser).once('value').then(function(snapshot) {
                 console.log(snapshot);
-                var lastArray = snapshot[users[currUser[Object.keys(snapshot.users[currUser])[Object.keys(snapshot.users[currUser]).length - 1]]]];
+                var users = snapshot["users"];
+                console.log(users);
+                var oneUser = users[currUser];
+                console.log(oneUser);
+                var lastArray = oneUser[Object.keys(oneUser)[Object.keys(oneUser).length - 1]];
                 console.log(lastArray);
-                var currentPlayers = snapshot[users[currUser[lastArray]]];
-                console.log(currentPlayers);
                 // ...
             });
             // ...
