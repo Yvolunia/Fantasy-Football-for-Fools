@@ -53,7 +53,8 @@ $(document).ready(function() {
             // User is signed in.
             event.preventDefault();
             currUser = user.uid;
-            return firebase.database().ref.child('users').orderByChild('first_name').equalTo(username.first_name)..once('value').then(function(snapshot) {
+            var ref =  firebase.database().ref();
+            return ref.child('users').orderByChild('first_name').equalTo(username.first_name)..once('value').then(function(snapshot) {
                 
                 console.log(snapshot);
                 // var users = snapshot.users;
