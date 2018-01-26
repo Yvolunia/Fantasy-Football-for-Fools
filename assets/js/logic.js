@@ -15,9 +15,8 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    console.log(firebase.auth());
-    console.log(firebase.auth().X);
-    //console.log(firebase.auth().X.currentUser);
+    console.log(firebase.auth().currentUser.uid);
+    // console.log(firebase.auth().X);
     //console.log(firebase.auth().X.currentUser.uid);
 
     // Global Variables
@@ -267,23 +266,6 @@ $(document).ready(function() {
         database.ref().push(savedPicks);
 
 });
-
-
-
-
-// Initialize Firebase
-
-var config = {
-    apiKey: "AIzaSyAyIAyWHVX4hO1C2sCNbTL03Vdd09dMq_U",
-    authDomain: "fantasyfootballauthui.firebaseapp.com",
-    databaseURL: "https://fantasyfootballauthui.firebaseio.com",
-    projectId: "fantasyfootballauthui",
-    storageBucket: "fantasyfootballauthui.appspot.com",
-    messagingSenderId: "660825767375"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
 
 // Creates local "temporary" object for holding player data
 
