@@ -80,163 +80,163 @@ $(document).ready(function() {
         }
     });
 
-    database.ref().on("value", function(childSnapshot, prevChildKey) {
-        console.log(childSnapshot.val());
-        for (v in childSnapshot.val()) {
-            for (var i = 0; i < v.length; i++) {
-                if (v[i].playerID == '') {
+    // database.ref().on("value", function(childSnapshot, prevChildKey) {
+    //     console.log(childSnapshot.val());
+    //     for (v in childSnapshot.val()) {
+    //         for (var i = 0; i < v.length; i++) {
+    //             if (v[i].playerID == '') {
 
-                    var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
+    //                 var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
 
-                    // Ajax call with my subscription key to pull back D/ST data
-                    $.ajax({
-                            headers: {
-                                'Ocp-Apim-Subscription-Key': subscriptionKey,
-                            },
-                            url: myUrl
-                        })
-                        .done(function(response) {
+    //                 // Ajax call with my subscription key to pull back D/ST data
+    //                 $.ajax({
+    //                         headers: {
+    //                             'Ocp-Apim-Subscription-Key': subscriptionKey,
+    //                         },
+    //                         url: myUrl
+    //                     })
+    //                     .done(function(response) {
 
-                            console.log(response);
+    //                         console.log(response);
 
-                            for (var j = 0; i < response.length; i++) {
-                                if (v[i].team === response[j].Team) {}
+    //                         for (var j = 0; i < response.length; i++) {
+    //                             if (v[i].team === response[j].Team) {}
 
-                                tbody.append("<tr></tr>");
-                                var tr = tbody.children().eq(count);
-                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
-                                var td = tr.children("td");
-                                var touchdowns = parseInt(response[j].DefensiveTouchdowns) + parseInt(response[j].SpecialTeamsTouchdowns);
+    //                             tbody.append("<tr></tr>");
+    //                             var tr = tbody.children().eq(count);
+    //                             tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+    //                             var td = tr.children("td");
+    //                             var touchdowns = parseInt(response[j].DefensiveTouchdowns) + parseInt(response[j].SpecialTeamsTouchdowns);
 
-                                td.eq(0).text(response[j].Team);
-                                td.eq(2).text("D/ST");
-                                td.eq(3).text(response[j].Sacks);
-                                td.eq(4).text(response[j].Interceptions);
-                                td.eq(5).text(touchdowns);
-                                td.eq(6).text(response[j].FumblesRecovered);
-                                td.eq(7).text(response[j].FantasyPoints);
+    //                             td.eq(0).text(response[j].Team);
+    //                             td.eq(2).text("D/ST");
+    //                             td.eq(3).text(response[j].Sacks);
+    //                             td.eq(4).text(response[j].Interceptions);
+    //                             td.eq(5).text(touchdowns);
+    //                             td.eq(6).text(response[j].FumblesRecovered);
+    //                             td.eq(7).text(response[j].FantasyPoints);
 
-                                count++
-                            }
+    //                             count++
+    //                         }
 
-                        });
+    //                     });
 
-                } else if (v[i].position == 'QB') {
+    //             } else if (v[i].position == 'QB') {
 
-                    var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + v[i].playerID;
+    //                 var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + v[i].playerID;
 
-                    $.ajax({
-                            headers: {
-                                'Ocp-Apim-Subscription-Key': subscriptionKey,
-                            },
-                            url: myUrl
-                        })
-                        .done(function(response) {
+    //                 $.ajax({
+    //                         headers: {
+    //                             'Ocp-Apim-Subscription-Key': subscriptionKey,
+    //                         },
+    //                         url: myUrl
+    //                     })
+    //                     .done(function(response) {
 
-                            console.log(response);
-
-
-
-                            tbodyQb.append("<tr></tr>");
-                            var tr = tbodyQb.children().eq(countQb);
-                            tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
-                            var td = tr.children("td");
-
-                            td.eq(0).text(response.FirstName + ' ' + response.LastName);
-                            td.eq(1).text(response.Team)
-                            td.eq(2).text(response.Position);
-                            td.eq(3).text(response.PlayerSeason.PassingYards);
-                            td.eq(4).text(response.PlayerSeason.PassingTouchdowns);
-                            td.eq(5).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
-                            td.eq(6).text(response.PlayerSeason.PassingInterceptions);
-                            td.eq(7).text(response.PlayerSeason.FantasyPoints);
-
-                            countQb++;
+    //                         console.log(response);
 
 
 
-                        });
+    //                         tbodyQb.append("<tr></tr>");
+    //                         var tr = tbodyQb.children().eq(countQb);
+    //                         tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+    //                         var td = tr.children("td");
 
-                } else if (v[i].position == 'RB' || v[i].position == 'WR' || v[i].position == 'TE') {
+    //                         td.eq(0).text(response.FirstName + ' ' + response.LastName);
+    //                         td.eq(1).text(response.Team)
+    //                         td.eq(2).text(response.Position);
+    //                         td.eq(3).text(response.PlayerSeason.PassingYards);
+    //                         td.eq(4).text(response.PlayerSeason.PassingTouchdowns);
+    //                         td.eq(5).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
+    //                         td.eq(6).text(response.PlayerSeason.PassingInterceptions);
+    //                         td.eq(7).text(response.PlayerSeason.FantasyPoints);
 
-                    var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + v[i].playerID;
-
-                    $.ajax({
-                            headers: {
-                                'Ocp-Apim-Subscription-Key': subscriptionKey,
-                            },
-                            url: myUrl
-                        })
-                        .done(function(response) {
-
-                            console.log(response);
-
-
-
-                            tbodyBc.append("<tr></tr>");
-                            var tr = tbodyBc.children().eq(countBc);
-                            tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
-                            var td = tr.children("td");
-
-                            td.eq(0).text(response.FirstName + ' ' + response.LastName);
-                            td.eq(1).text(response.Team)
-                            td.eq(2).text(response.Position);
-                            td.eq(3).text(response.PlayerSeason.ReceivingYards);
-                            td.eq(4).text(response.PlayerSeason.RushingYards);
-                            td.eq(5).text(parseInt(response.PlayerSeason.RushingTouchdowns) + parseInt(response.PlayerSeason.ReceivingTouchdowns));
-                            td.eq(6).text(response.PlayerSeason.Fumbles);
-                            td.eq(7).text(response.PlayerSeason.FantasyPoints);
-
-                            countBc++;
+    //                         countQb++;
 
 
 
-                        });
+    //                     });
 
+    //             } else if (v[i].position == 'RB' || v[i].position == 'WR' || v[i].position == 'TE') {
 
-                } else {
+    //                 var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + v[i].playerID;
 
-                    var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + v[i].playerID;
+    //                 $.ajax({
+    //                         headers: {
+    //                             'Ocp-Apim-Subscription-Key': subscriptionKey,
+    //                         },
+    //                         url: myUrl
+    //                     })
+    //                     .done(function(response) {
 
-                    $.ajax({
-                            headers: {
-                                'Ocp-Apim-Subscription-Key': subscriptionKey,
-                            },
-                            url: myUrl
-                        })
-                        .done(function(response) {
-
-                            console.log(response);
-
-
-
-                            tbodyK.append("<tr></tr>");
-                            var tr = tbodyK.children().eq(countK);
-                            tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
-                            var td = tr.children("td");
-
-                            td.eq(0).text(response.FirstName + ' ' + response.LastName);
-                            td.eq(1).text(response.Team)
-                            td.eq(2).text(response.Position);
-                            td.eq(3).text(parseInt(response.PlayerSeason.FieldGoalsMade0to19) + parseInt(response.PlayerSeason.FieldGoalsMade20to29) + parseInt(response.PlayerSeason.FieldGoalsMade30to39));
-                            td.eq(4).text(parseInt(response.PlayerSeason.FieldGoalsMade40to49) + parseInt(response.PlayerSeason.FieldGoalsMade50Plus));
-                            td.eq(5).text(response.PlayerSeason.ExtraPointsMade);
-                            td.eq(6).text(parseInt(response.PlayerSeason.FieldGoalsAttempted) - parseInt(response.PlayerSeason.FieldGoalsMade));
-                            td.eq(7).text(response.PlayerSeason.FantasyPoints);
-
-                            countK++;
+    //                         console.log(response);
 
 
 
-                        });
+    //                         tbodyBc.append("<tr></tr>");
+    //                         var tr = tbodyBc.children().eq(countBc);
+    //                         tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+    //                         var td = tr.children("td");
 
-                }
-            }
+    //                         td.eq(0).text(response.FirstName + ' ' + response.LastName);
+    //                         td.eq(1).text(response.Team)
+    //                         td.eq(2).text(response.Position);
+    //                         td.eq(3).text(response.PlayerSeason.ReceivingYards);
+    //                         td.eq(4).text(response.PlayerSeason.RushingYards);
+    //                         td.eq(5).text(parseInt(response.PlayerSeason.RushingTouchdowns) + parseInt(response.PlayerSeason.ReceivingTouchdowns));
+    //                         td.eq(6).text(response.PlayerSeason.Fumbles);
+    //                         td.eq(7).text(response.PlayerSeason.FantasyPoints);
+
+    //                         countBc++;
 
 
-        }
 
-    });
+    //                     });
+
+
+    //             } else {
+
+    //                 var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + v[i].playerID;
+
+    //                 $.ajax({
+    //                         headers: {
+    //                             'Ocp-Apim-Subscription-Key': subscriptionKey,
+    //                         },
+    //                         url: myUrl
+    //                     })
+    //                     .done(function(response) {
+
+    //                         console.log(response);
+
+
+
+    //                         tbodyK.append("<tr></tr>");
+    //                         var tr = tbodyK.children().eq(countK);
+    //                         tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+    //                         var td = tr.children("td");
+
+    //                         td.eq(0).text(response.FirstName + ' ' + response.LastName);
+    //                         td.eq(1).text(response.Team)
+    //                         td.eq(2).text(response.Position);
+    //                         td.eq(3).text(parseInt(response.PlayerSeason.FieldGoalsMade0to19) + parseInt(response.PlayerSeason.FieldGoalsMade20to29) + parseInt(response.PlayerSeason.FieldGoalsMade30to39));
+    //                         td.eq(4).text(parseInt(response.PlayerSeason.FieldGoalsMade40to49) + parseInt(response.PlayerSeason.FieldGoalsMade50Plus));
+    //                         td.eq(5).text(response.PlayerSeason.ExtraPointsMade);
+    //                         td.eq(6).text(parseInt(response.PlayerSeason.FieldGoalsAttempted) - parseInt(response.PlayerSeason.FieldGoalsMade));
+    //                         td.eq(7).text(response.PlayerSeason.FantasyPoints);
+
+    //                         countK++;
+
+
+
+    //                     });
+
+    //             }
+    //         }
+
+
+    //     }
+
+    // });
 });
 
 
