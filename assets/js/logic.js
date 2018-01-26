@@ -291,10 +291,10 @@ $(document).ready(function() {
 // Creates local "temporary" object for holding player data
 
 
-var playerData = {
-    myPlayer: dataPlayerId,
-    myTeam: dataTeam,
-};
+// var playerData = {
+//     myPlayer: dataPlayerId,
+//     myTeam: dataTeam,
+// };
 
 
 // When Continue button is click, user selections updated to Firebase
