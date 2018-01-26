@@ -18,23 +18,24 @@ $(document).ready(function() {
     var uid = "UNKNOWN";
 
     firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var displayName = user.displayName;
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    uid = user.uid;
-    var providerData = user.providerData;
-    console.log("WELCOME TO THE BIG SHOW! " + uid);
-    // ...
-  } else {
-    // User is signed out.
-    console.log("how dare you log out!");
-    // ...
-  }
-});
+        if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var isAnonymous = user.isAnonymous;
+            uid = user.uid;
+            var providerData = user.providerData;
+            console.log("WELCOME TO THE BIG SHOW! " + uid);
+            console.log(email);
+            // ...
+        } else {
+            // User is signed out.
+            console.log("how dare you log out!");
+            // ...
+        }
+    });
     console.log(uid);
 
     // var currentUser = firebase.auth().currentUser;
@@ -267,7 +268,7 @@ $(document).ready(function() {
         pickCount = 0;
         savedPicks = [""];
     });
-// Sticky Saved players section
+    // Sticky Saved players section
 
     // Sticky Saved players section
     $(document).ready(function() {
@@ -286,21 +287,21 @@ $(document).ready(function() {
     $("#continue").on("click", function() {
         database.ref().push(savedPicks);
 
-});
+    });
 
-// Creates local "temporary" object for holding player data
-
-
-// var playerData = {
-//     myPlayer: dataPlayerId,
-//     myTeam: dataTeam,
-// };
+    // Creates local "temporary" object for holding player data
 
 
-// When Continue button is click, user selections updated to Firebase
+    // var playerData = {
+    //     myPlayer: dataPlayerId,
+    //     myTeam: dataTeam,
+    // };
 
-$("#continue").on("click", function() {
-    database.ref().push(playerData);
-});
+
+    // When Continue button is click, user selections updated to Firebase
+
+    $("#continue").on("click", function() {
+        database.ref().push(playerData);
+    });
 
 });
