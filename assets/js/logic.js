@@ -266,10 +266,12 @@ $(document).ready(function() {
                 event.preventDefault();
                 database.ref("users/" + user.displayName).push(savedPicks);
                 console.log(savedPicks);
+                window.open("FinalDraft.html", "_self");
                 // ...
             } else {
                 // User is signed out.
-                console.log("how dare you log out!");
+            $("#logout").text("You are logged out. Please login and try again.");
+            $("#logout").attr("class","text-danger");
                 // ...
             }
         });
