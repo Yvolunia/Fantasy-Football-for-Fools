@@ -83,6 +83,8 @@ $(document).ready(function() {
                 for (var i = 1; i < currentPicks.length; i++) {
                     // If current player is a Defense
                     if (currentPicks[i].position === 'D/ST') {
+                        console.log(currentPicks[i].team);
+                        var currentDefense = currentPicks[i].team;
                         var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
 
                         // Ajax call with my subscription key to pull back D/ST data
@@ -97,8 +99,7 @@ $(document).ready(function() {
                                 // Interates through all 32 defenses and pulls the information for the one that matches the current play
                                 // Then it pushes the information to the appropriate table
                                 for (var j = 0; j < response.length; j++) {
-                                    console.log(currentPicks[i]);
-                                    if (currentPicks[i].team === response[j].Team) {
+                                    if (currentDefense === response[j].Team) {
                                         tbody.append("<tr></tr>");
                                         var tr = tbody.children().eq(count);
                                         tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
