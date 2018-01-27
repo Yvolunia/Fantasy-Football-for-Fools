@@ -55,21 +55,144 @@ $(document).ready(function() {
             currUser = user.uid;
             database.ref().on("value", function(childSnapshot, prevChildKey) {
                 var fullDatabase = childSnapshot.val();
-                console.log(fullDatabase);
                 var users = fullDatabase["users"];
-                console.log(users);
                 var allPicks = users[currUser];
-                console.log(allPicks);
                 var currentPickKey = Object.keys(allPicks)[Object.keys(allPicks).length - 1];
-                console.log(currentPickKey);
                 var currentPicks = allPicks[currentPickKey];
-                console.log(currentPicks);
-                console.log("Work damn you!");
-                // var oneUser = users.child(currUser);
-                // console.log(oneUser);
-                // var lastArray = oneUser(Object.keys(oneUser)[Object.keys(oneUser).length - 1]);
-                // console.log(lastArray);
-                // ...
+                for (var i = 1; i < currentPicks.length; i++) {
+                    if (currentPicks[i].position === 'DEF') {
+                        var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
+
+                        // Ajax call with my subscription key to pull back D/ST data
+                        $.ajax({
+                                headers: {
+                                    'Ocp-Apim-Subscription-Key': subscriptionKey,
+                                },
+                                url: myUrl
+                            })
+                            .done(function(response) {
+
+                                for (var j = 0; i < response.length; i++) {
+                                    if (currentPicks[i].team === response[j].Team) {
+                                        console.log(response[j]);
+                                        tbody.append("<tr></tr>");
+                                        var tr = tbody.children().eq(count);
+                                        tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                        var td = tr.children("td");
+                                        var touchdowns = parseInt(response[j].DefensiveTouchdowns) + parseInt(response[j].SpecialTeamsTouchdowns);
+
+                                        td.eq(0).text(response[j].Team);
+                                        td.eq(2).text("D/ST");
+                                        td.eq(3).text(response[j].Sacks);
+                                        td.eq(4).text(response[j].Interceptions);
+                                        td.eq(5).text(touchdowns);
+                                        td.eq(6).text(response[j].FumblesRecovered);
+                                        td.eq(7).text(response[j].FantasyPoints);
+
+                                        count++
+                                    }
+                                }
+
+                            });
+
+                    } else if (currentPicks[i].position === 'QB') {
+                        var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + currentPicks[i].playerID;
+
+                        $.ajax({
+                                headers: {
+                                    'Ocp-Apim-Subscription-Key': subscriptionKey,
+                                },
+                                url: myUrl
+                            })
+                            .done(function(response) {
+
+                                console.log(response);
+
+                                tbodyQb.append("<tr></tr>");
+                                var tr = tbodyQb.children().eq(countQb);
+                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                var td = tr.children("td");
+
+                                td.eq(0).text(response.FirstName + ' ' + response.LastName);
+                                td.eq(1).text(response.Team)
+                                td.eq(2).text(response.Position);
+                                td.eq(3).text(response.PlayerSeason.PassingYards);
+                                td.eq(4).text(response.PlayerSeason.PassingTouchdowns);
+                                td.eq(5).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
+                                td.eq(6).text(response.PlayerSeason.PassingInterceptions);
+                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
+
+                                countQb++;
+
+                            });
+
+                    } else if (currentPicks[i].position == 'RB' || currentPicks[i].position == 'WR' || currentPicks[i].position == 'TE') {
+
+                        var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + currentPicks[i].playerID;
+
+                        $.ajax({
+                                headers: {
+                                    'Ocp-Apim-Subscription-Key': subscriptionKey,
+                                },
+                                url: myUrl
+                            })
+                            .done(function(response) {
+
+                                console.log(response);
+
+                                tbodyBc.append("<tr></tr>");
+                                var tr = tbodyBc.children().eq(countBc);
+                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                var td = tr.children("td");
+
+                                td.eq(0).text(response.FirstName + ' ' + response.LastName);
+                                td.eq(1).text(response.Team)
+                                td.eq(2).text(response.Position);
+                                td.eq(3).text(response.PlayerSeason.ReceivingYards);
+                                td.eq(4).text(response.PlayerSeason.RushingYards);
+                                td.eq(5).text(parseInt(response.PlayerSeason.RushingTouchdowns) + parseInt(response.PlayerSeason.ReceivingTouchdowns));
+                                td.eq(6).text(response.PlayerSeason.Fumbles);
+                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
+
+                                countBc++;
+
+                            });
+
+                    } else if (currentPicks[i].position == 'K') {
+                        var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/Player/" + currentPicks[i].playerID;
+
+                        $.ajax({
+                                headers: {
+                                    'Ocp-Apim-Subscription-Key': subscriptionKey,
+                                },
+                                url: myUrl
+                            })
+                            .done(function(response) {
+
+                                console.log(response);
+
+                                tbodyK.append("<tr></tr>");
+                                var tr = tbodyK.children().eq(countK);
+                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                var td = tr.children("td");
+
+                                td.eq(0).text(response.FirstName + ' ' + response.LastName);
+                                td.eq(1).text(response.Team)
+                                td.eq(2).text(response.Position);
+                                td.eq(3).text(parseInt(response.PlayerSeason.FieldGoalsMade0to19) + parseInt(response.PlayerSeason.FieldGoalsMade20to29) + parseInt(response.PlayerSeason.FieldGoalsMade30to39));
+                                td.eq(4).text(parseInt(response.PlayerSeason.FieldGoalsMade40to49) + parseInt(response.PlayerSeason.FieldGoalsMade50Plus));
+                                td.eq(5).text(response.PlayerSeason.ExtraPointsMade);
+                                td.eq(6).text(parseInt(response.PlayerSeason.FieldGoalsAttempted) - parseInt(response.PlayerSeason.FieldGoalsMade));
+                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
+
+                                countK++;
+
+                            });
+
+                    } else {
+                        console.log('This should never fire');
+                    }
+                }
             });
             // ...
         } else {
