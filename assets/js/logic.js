@@ -205,7 +205,7 @@ $(document).ready(function() {
 
         savedPicks.push(savedItems);
 
-        if (pickCount < 9) {
+        if (pickCount < 10) {
 
             picks.append("<tr></tr>");
             var tr = picks.children().eq(pickCount);

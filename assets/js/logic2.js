@@ -78,10 +78,11 @@ $(document).ready(function() {
                 var preSortPicks = allPicks[currentPickKey];
                 // Sorts the object array by Fantasy points in order from highest to lowest
                 var currentPicks = preSortPicks.sort(objectSort("-points"));
+                console.log(currentPicks);
                 // Processes the currentPicks object array
                 for (var i = 1; i < currentPicks.length; i++) {
                     // If current player is a Defense
-                    if (currentPicks[i].position === 'D/ST"') {
+                    if (currentPicks[i].position === 'D/ST') {
                         var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
 
                         // Ajax call with my subscription key to pull back D/ST data
@@ -104,11 +105,12 @@ $(document).ready(function() {
                                         var touchdowns = parseInt(response[j].DefensiveTouchdowns) + parseInt(response[j].SpecialTeamsTouchdowns);
 
                                         td.eq(0).text(response[j].Team);
-                                        td.eq(2).text("D/ST");
-                                        td.eq(3).text(response[j].Sacks);
-                                        td.eq(4).text(response[j].Interceptions);
-                                        td.eq(5).text(touchdowns);
-                                        td.eq(6).text(response[j].FumblesRecovered);
+                                        td.eq(1).text("D/ST");
+                                        td.eq(2).text(response[j].Sacks);
+                                        td.eq(3).text(response[j].Interceptions);
+                                        td.eq(4).text(response[j].FumblesRecovered);
+                                        td.eq(5).text(response[j].BlockedKicks);
+                                        td.eq(6).text(touchdowns);
                                         td.eq(7).text(response[j].FantasyPoints);
 
                                         count++
@@ -133,14 +135,15 @@ $(document).ready(function() {
                                 tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
                                 var td = tr.children("td");
 
-                                td.eq(0).text(response.FirstName + ' ' + response.LastName);
-                                td.eq(1).text(response.Team)
-                                td.eq(2).text(response.Position);
-                                td.eq(3).text(response.PlayerSeason.PassingYards);
-                                td.eq(4).text(response.PlayerSeason.PassingTouchdowns);
-                                td.eq(5).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
-                                td.eq(6).text(response.PlayerSeason.PassingInterceptions);
-                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
+                                td.eq(0).html("<img src='" + response.PhotoUrl + "'></img>");
+                                td.eq(1).text(response.FirstName + ' ' + response.LastName);
+                                td.eq(2).text(response.Team)
+                                td.eq(3).text(response.Position);
+                                td.eq(4).text(response.PlayerSeason.PassingYards);
+                                td.eq(5).text(response.PlayerSeason.PassingTouchdowns);
+                                td.eq(6).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
+                                td.eq(7).text(response.PlayerSeason.PassingInterceptions);
+                                td.eq(8).text(response.PlayerSeason.FantasyPoints);
 
                                 countQb++;
 
