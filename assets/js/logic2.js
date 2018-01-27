@@ -78,12 +78,10 @@ $(document).ready(function() {
                 var currentPicks = allPicks[currentPickKey];
                 // Sorts the object array by Fantasy points in order from highest to lowest
                 //var currentPicks = preSortPicks.sort(objectSort("-points"));
-                console.log(currentPicks);
                 // Processes the currentPicks object array
-                for (var i = 1; i < currentPicks.length; i++) {
+                for (var i = 0; i < currentPicks.length; i++) {
                     // If current player is a Defense
                     if (currentPicks[i].position === 'D/ST') {
-                        console.log(currentPicks[i].team);
                         var currentDefense = currentPicks[i].team;
                         var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
 
@@ -213,7 +211,7 @@ $(document).ready(function() {
                             });
 
                     } else {
-                        console.log('This should never fire');
+                        console.log('Stupid blank entry');
                     }
                 }
             });
