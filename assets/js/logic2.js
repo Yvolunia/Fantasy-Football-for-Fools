@@ -75,9 +75,9 @@ $(document).ready(function() {
                 // Pulls the key for the most recent picks submitted by the current user
                 var currentPickKey = Object.keys(allPicks)[Object.keys(allPicks).length - 1];
                 // Pulls the most recent picks submitted by the current user
-                var currentPicks = allPicks[currentPickKey];
+                var preSortPicks = allPicks[currentPickKey];
                 // Sorts the object array by Fantasy points in order from highest to lowest
-                // var currentPicks = preSortPicks.sort(objectSort("-points"));
+                var currentPicks = preSortPicks.sort(objectSort("-points"));
                 console.log(currentPicks);
                 // Processes the currentPicks object array
                 for (var i = 1; i < currentPicks.length; i++) {
@@ -97,10 +97,11 @@ $(document).ready(function() {
                                 // Interates through all 32 defenses and pulls the information for the one that matches the current play
                                 // Then it pushes the information to the appropriate table
                                 for (var j = 0; i < response.length; i++) {
+                                    console.log(currentPicks[i]);
                                     if (currentPicks[i].team === response[j].Team) {
                                         tbody.append("<tr></tr>");
                                         var tr = tbody.children().eq(count);
-                                        tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                        tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
                                         var td = tr.children("td");
                                         var touchdowns = parseInt(response[j].DefensiveTouchdowns) + parseInt(response[j].SpecialTeamsTouchdowns);
 
@@ -132,17 +133,18 @@ $(document).ready(function() {
 
                                 tbodyQb.append("<tr></tr>");
                                 var tr = tbodyQb.children().eq(countQb);
-                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
                                 var td = tr.children("td");
 
                                 td.eq(0).html("<img src='" + response.PhotoUrl + "'></img>");
                                 td.eq(1).text(response.FirstName + ' ' + response.LastName);
-                                td.eq(2).text(response.Team);
-                                td.eq(3).text(response.PlayerSeason.PassingYards);
-                                td.eq(4).text(response.PlayerSeason.PassingTouchdowns);
-                                td.eq(5).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
-                                td.eq(6).text(response.PlayerSeason.PassingInterceptions);
-                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
+                                td.eq(2).text(response.Team)
+                                td.eq(3).text(response.Position);
+                                td.eq(4).text(response.PlayerSeason.PassingYards);
+                                td.eq(5).text(response.PlayerSeason.PassingTouchdowns);
+                                td.eq(6).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
+                                td.eq(7).text(response.PlayerSeason.PassingInterceptions);
+                                td.eq(8).text(response.PlayerSeason.FantasyPoints);
 
                                 countQb++;
 
@@ -162,7 +164,7 @@ $(document).ready(function() {
 
                                 tbodyBc.append("<tr></tr>");
                                 var tr = tbodyBc.children().eq(countBc);
-                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
                                 var td = tr.children("td");
 
                                 td.eq(0).html("<img src='" + response.PhotoUrl + "'></img>");
@@ -192,7 +194,7 @@ $(document).ready(function() {
 
                                 tbodyK.append("<tr></tr>");
                                 var tr = tbodyK.children().eq(countK);
-                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
+                                tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
                                 var td = tr.children("td");
 
                                 td.eq(0).html("<img src='" + response.PhotoUrl + "'></img>");
