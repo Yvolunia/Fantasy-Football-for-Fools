@@ -31,7 +31,7 @@ $(document).ready(function() {
     // Array Variables
     var positions = ["K", "D/ST", "TE", "WR", "RB", "QB"];
     var positionCount = [15, 15, 25, 50, 50, 25];
-    var savedPicks = [""];
+    var savedPicks = [];
 
     // jQuery Variables
     var tbody = $("#list")

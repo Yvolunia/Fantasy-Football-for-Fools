@@ -19,6 +19,7 @@ $(document).ready(function() {
     // Text Variables
     var subscriptionKey = "b204be46c1494d69be425ea909a27795";
     var currUser = '';
+    var pointValues = [""];
 
     // Number Variable
     var countQb = 0;
@@ -79,6 +80,12 @@ $(document).ready(function() {
                 // Sorts the object array by Fantasy points in order from highest to lowest
                 //var currentPicks = preSortPicks.sort(objectSort("-points"));
                 // Processes the currentPicks object array
+
+                // for (var i = 0; i < currentPicks.length; i++) {
+                //     Things[i]
+
+                // }
+
                 for (var i = 0; i < currentPicks.length; i++) {
                     // If current player is a Defense
                     if (currentPicks[i].position === 'D/ST') {
