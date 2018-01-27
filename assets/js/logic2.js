@@ -58,8 +58,12 @@ $(document).ready(function() {
                 console.log(fullDatabase);
                 var users = fullDatabase["users"];
                 console.log(users);
-                var test = childSnapshot.child("users").val();
-                console.log(test);
+                var allPicks = users[currUser];
+                console.log(allPicks);
+                var currentPickKey = Object.keys(oneUser)[Object.keys(oneUser).length - 1];
+                console.log(currentPickKey);
+                var currentPicks = allPicks[currentPickKey];
+                console.log(currentPicks);
                 console.log("Work damn you!");
                 // var oneUser = users.child(currUser);
                 // console.log(oneUser);
