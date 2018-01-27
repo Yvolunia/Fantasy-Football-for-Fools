@@ -200,6 +200,7 @@ $(document).ready(function() {
             playerID: dataPlayerId,
             position: dataPosition,
             team: dataTeam,
+            points: dataPoints,
         };
 
         savedPicks.push(savedItems);

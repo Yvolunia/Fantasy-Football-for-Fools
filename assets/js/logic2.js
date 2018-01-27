@@ -47,6 +47,19 @@ $(document).ready(function() {
         .children()
         .eq(1);
 
+    // Global Functions
+    function objectSort(property) {
+        var sortOrder = 1;
+        if (property[0] === "-") {
+            sortOrder = -1;
+            property = property.substr(1);
+        }
+        return function(a, b) {
+            var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+            return result * sortOrder;
+        }
+    }
+
     // Firebase event for adding train to the database and a row in the html when a user adds an entry
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -58,9 +71,10 @@ $(document).ready(function() {
                 var users = fullDatabase["users"];
                 var allPicks = users[currUser];
                 var currentPickKey = Object.keys(allPicks)[Object.keys(allPicks).length - 1];
-                var currentPicks = allPicks[currentPickKey];
+                var preSortPicks = allPicks[currentPickKey];
+                var currentPicks = preSortPicks.sort(objectSort("-points"));
                 for (var i = 1; i < currentPicks.length; i++) {
-                    if (currentPicks[i].position === 'DEF') {
+                    if (currentPicks[i].position === 'D/ST"') {
                         var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
 
                         // Ajax call with my subscription key to pull back D/ST data
@@ -145,14 +159,15 @@ $(document).ready(function() {
                                 tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
                                 var td = tr.children("td");
 
-                                td.eq(0).text(response.FirstName + ' ' + response.LastName);
-                                td.eq(1).text(response.Team)
-                                td.eq(2).text(response.Position);
-                                td.eq(3).text(response.PlayerSeason.ReceivingYards);
-                                td.eq(4).text(response.PlayerSeason.RushingYards);
-                                td.eq(5).text(parseInt(response.PlayerSeason.RushingTouchdowns) + parseInt(response.PlayerSeason.ReceivingTouchdowns));
-                                td.eq(6).text(response.PlayerSeason.Fumbles);
-                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
+                                td.eq(0).html("<img src='" + response.PhotoUrl + "'></img>");
+                                td.eq(1).text(response.FirstName + ' ' + response.LastName);
+                                td.eq(2).text(response.Team)
+                                td.eq(3).text(response.Position);
+                                td.eq(4).text(response.PlayerSeason.ReceivingYards);
+                                td.eq(5).text(response.PlayerSeason.RushingYards);
+                                td.eq(6).text(parseInt(response.PlayerSeason.RushingTouchdowns) + parseInt(response.PlayerSeason.ReceivingTouchdowns));
+                                td.eq(7).text(response.PlayerSeason.Fumbles);
+                                td.eq(8).text(response.PlayerSeason.FantasyPoints);
 
                                 countBc++;
 
@@ -176,14 +191,15 @@ $(document).ready(function() {
                                 tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
                                 var td = tr.children("td");
 
-                                td.eq(0).text(response.FirstName + ' ' + response.LastName);
-                                td.eq(1).text(response.Team)
-                                td.eq(2).text(response.Position);
-                                td.eq(3).text(parseInt(response.PlayerSeason.FieldGoalsMade0to19) + parseInt(response.PlayerSeason.FieldGoalsMade20to29) + parseInt(response.PlayerSeason.FieldGoalsMade30to39));
-                                td.eq(4).text(parseInt(response.PlayerSeason.FieldGoalsMade40to49) + parseInt(response.PlayerSeason.FieldGoalsMade50Plus));
-                                td.eq(5).text(response.PlayerSeason.ExtraPointsMade);
-                                td.eq(6).text(parseInt(response.PlayerSeason.FieldGoalsAttempted) - parseInt(response.PlayerSeason.FieldGoalsMade));
-                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
+                                td.eq(0).html("<img src='" + response.PhotoUrl + "'></img>");
+                                td.eq(1).text(response.FirstName + ' ' + response.LastName);
+                                td.eq(2).text(response.Team)
+                                td.eq(3).text(response.Position);
+                                td.eq(4).text(parseInt(response.PlayerSeason.FieldGoalsMade0to19) + parseInt(response.PlayerSeason.FieldGoalsMade20to29) + parseInt(response.PlayerSeason.FieldGoalsMade30to39));
+                                td.eq(5).text(parseInt(response.PlayerSeason.FieldGoalsMade40to49) + parseInt(response.PlayerSeason.FieldGoalsMade50Plus));
+                                td.eq(6).text(response.PlayerSeason.ExtraPointsMade);
+                                td.eq(7).text(parseInt(response.PlayerSeason.FieldGoalsAttempted) - parseInt(response.PlayerSeason.FieldGoalsMade));
+                                td.eq(8).text(response.PlayerSeason.FantasyPoints);
 
                                 countK++;
 
