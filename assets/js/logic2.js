@@ -96,7 +96,7 @@ $(document).ready(function() {
 
                                 // Interates through all 32 defenses and pulls the information for the one that matches the current play
                                 // Then it pushes the information to the appropriate table
-                                for (var j = 0; i < response.length; i++) {
+                                for (var j = 0; j < response.length; j++) {
                                     console.log(currentPicks[i]);
                                     if (currentPicks[i].team === response[j].Team) {
                                         tbody.append("<tr></tr>");
