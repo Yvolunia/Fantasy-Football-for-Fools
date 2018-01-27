@@ -13,8 +13,6 @@ $(document).ready(function() {
     firebase.initializeApp(config);
 
     var database = firebase.database();
-    //console.log(firebase.auth().X.currentUser);
-    //console.log(firebase.auth().X.currentUser.uid);
 
     // Global Variables
 
@@ -23,7 +21,6 @@ $(document).ready(function() {
     var currUser = '';
 
     // Number Variable
-
     var countQb = 0;
     var countBc = 0;
     var count = 0;
@@ -65,15 +62,25 @@ $(document).ready(function() {
         if (user) {
             // User is signed in.
             event.preventDefault();
+            // Save the user id for the current user signed in
             currUser = user.uid;
+            // Call to pull back the data pushed to Firebase
             database.ref().on("value", function(childSnapshot, prevChildKey) {
+                // Pulls back the full database
                 var fullDatabase = childSnapshot.val();
+                // Pulls back the users for Firebase
                 var users = fullDatabase["users"];
+                // Pulls the full history of picks for the current user
                 var allPicks = users[currUser];
+                // Pulls the key for the most recent picks submitted by the current user
                 var currentPickKey = Object.keys(allPicks)[Object.keys(allPicks).length - 1];
+                // Pulls the most recent picks submitted by the current user
                 var preSortPicks = allPicks[currentPickKey];
+                // Sorts the object array by Fantasy points in order from highest to lowest
                 var currentPicks = preSortPicks.sort(objectSort("-points"));
+                // Processes the currentPicks object array
                 for (var i = 1; i < currentPicks.length; i++) {
+                    // If current player is a Defense
                     if (currentPicks[i].position === 'D/ST"') {
                         var myUrl = "https://api.fantasydata.net/v3/nfl/stats/JSON/FantasyDefenseBySeason/" + lastYear;
 
@@ -86,9 +93,10 @@ $(document).ready(function() {
                             })
                             .done(function(response) {
 
+                                // Interates through all 32 defenses and pulls the information for the one that matches the current play
+                                // Then it pushes the information to the appropriate table
                                 for (var j = 0; i < response.length; i++) {
                                     if (currentPicks[i].team === response[j].Team) {
-                                        console.log(response[j]);
                                         tbody.append("<tr></tr>");
                                         var tr = tbody.children().eq(count);
                                         tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
@@ -120,8 +128,6 @@ $(document).ready(function() {
                             })
                             .done(function(response) {
 
-                                console.log(response);
-
                                 tbodyQb.append("<tr></tr>");
                                 var tr = tbodyQb.children().eq(countQb);
                                 tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
@@ -152,8 +158,6 @@ $(document).ready(function() {
                             })
                             .done(function(response) {
 
-                                console.log(response);
-
                                 tbodyBc.append("<tr></tr>");
                                 var tr = tbodyBc.children().eq(countBc);
                                 tr.append("<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>");
@@ -183,8 +187,6 @@ $(document).ready(function() {
                                 url: myUrl
                             })
                             .done(function(response) {
-
-                                console.log(response);
 
                                 tbodyK.append("<tr></tr>");
                                 var tr = tbodyK.children().eq(countK);
@@ -237,5 +239,5 @@ $(document).ready(function() {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
-    
+
 });
