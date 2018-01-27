@@ -264,9 +264,10 @@ $(document).ready(function() {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
+                var sortedSavedPicks = response.sort(objectSort("-points"));
                 event.preventDefault();
-                database.ref("users/" + user.uid).push(savedPicks);
-                console.log(savedPicks);
+                database.ref("users/" + user.uid).push(sortedSavedPicks);
+                console.log(sortedSavedPicks);
                 window.open("FinalDraft.html", "_self");
                 // ...
             } else {

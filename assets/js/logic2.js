@@ -75,9 +75,9 @@ $(document).ready(function() {
                 // Pulls the key for the most recent picks submitted by the current user
                 var currentPickKey = Object.keys(allPicks)[Object.keys(allPicks).length - 1];
                 // Pulls the most recent picks submitted by the current user
-                var preSortPicks = allPicks[currentPickKey];
+                var currentPicks = allPicks[currentPickKey];
                 // Sorts the object array by Fantasy points in order from highest to lowest
-                var currentPicks = preSortPicks.sort(objectSort("-points"));
+                // var currentPicks = preSortPicks.sort(objectSort("-points"));
                 console.log(currentPicks);
                 // Processes the currentPicks object array
                 for (var i = 1; i < currentPicks.length; i++) {
@@ -137,13 +137,12 @@ $(document).ready(function() {
 
                                 td.eq(0).html("<img src='" + response.PhotoUrl + "'></img>");
                                 td.eq(1).text(response.FirstName + ' ' + response.LastName);
-                                td.eq(2).text(response.Team)
-                                td.eq(3).text(response.Position);
-                                td.eq(4).text(response.PlayerSeason.PassingYards);
-                                td.eq(5).text(response.PlayerSeason.PassingTouchdowns);
-                                td.eq(6).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
-                                td.eq(7).text(response.PlayerSeason.PassingInterceptions);
-                                td.eq(8).text(response.PlayerSeason.FantasyPoints);
+                                td.eq(2).text(response.Team);
+                                td.eq(3).text(response.PlayerSeason.PassingYards);
+                                td.eq(4).text(response.PlayerSeason.PassingTouchdowns);
+                                td.eq(5).text(parseInt(response.PlayerSeason.PassingTouchdowns) + parseInt(response.PlayerSeason.RushingTouchdowns));
+                                td.eq(6).text(response.PlayerSeason.PassingInterceptions);
+                                td.eq(7).text(response.PlayerSeason.FantasyPoints);
 
                                 countQb++;
 
