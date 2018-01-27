@@ -54,18 +54,15 @@ $(document).ready(function() {
             event.preventDefault();
             currUser = user.uid;
             database.ref().on("value", function(childSnapshot, prevChildKey) {
-                console.log(childSnapshot);
-                console.log(childSnapshot.val());
-                snapshot.forEach(function(childSnapshot2) {
-                    var childKey = childSnapshot2.key;
-                    var childData = childSnapshot2.val();
-                });
-                var users = snapshot.child("users");
+                var fullDatabase = childSnapshot.val();
+                console.log(fullDatabase);
+                var users = fullDatabase.child("users");
                 console.log(users);
-                var oneUser = users.child(currUser);
-                console.log(oneUser);
-                var lastArray = oneUser(Object.keys(oneUser)[Object.keys(oneUser).length - 1]);
-                console.log(lastArray);
+                console.log(fullDatabase.users);
+                // var oneUser = users.child(currUser);
+                // console.log(oneUser);
+                // var lastArray = oneUser(Object.keys(oneUser)[Object.keys(oneUser).length - 1]);
+                // console.log(lastArray);
                 // ...
             });
             // ...
