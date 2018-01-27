@@ -56,9 +56,11 @@ $(document).ready(function() {
             database.ref().on("value", function(childSnapshot, prevChildKey) {
                 var fullDatabase = childSnapshot.val();
                 console.log(fullDatabase);
-                var users = fullDatabase.child("users");
+                var users = fullDatabase["users"];
                 console.log(users);
-                console.log(fullDatabase.users);
+                var test = childSnapshot.child("users").val();
+                console.log(test);
+                console.log("Work damn you!");
                 // var oneUser = users.child(currUser);
                 // console.log(oneUser);
                 // var lastArray = oneUser(Object.keys(oneUser)[Object.keys(oneUser).length - 1]);
