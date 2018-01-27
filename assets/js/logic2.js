@@ -60,7 +60,7 @@ $(document).ready(function() {
                 console.log(users);
                 var allPicks = users[currUser];
                 console.log(allPicks);
-                var currentPickKey = Object.keys(oneUser)[Object.keys(oneUser).length - 1];
+                var currentPickKey = Object.keys(allPicks)[Object.keys(allPicks).length - 1];
                 console.log(currentPickKey);
                 var currentPicks = allPicks[currentPickKey];
                 console.log(currentPicks);
