@@ -75,9 +75,9 @@ $(document).ready(function() {
                 // Pulls the key for the most recent picks submitted by the current user
                 var currentPickKey = Object.keys(allPicks)[Object.keys(allPicks).length - 1];
                 // Pulls the most recent picks submitted by the current user
-                var preSortPicks = allPicks[currentPickKey];
+                var currentPicks = allPicks[currentPickKey];
                 // Sorts the object array by Fantasy points in order from highest to lowest
-                var currentPicks = preSortPicks.sort(objectSort("-points"));
+                //var currentPicks = preSortPicks.sort(objectSort("-points"));
                 console.log(currentPicks);
                 // Processes the currentPicks object array
                 for (var i = 1; i < currentPicks.length; i++) {
